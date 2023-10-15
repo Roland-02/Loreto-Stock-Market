@@ -126,7 +126,7 @@ Module Module1
 
         Catch ex As Exception
 
-            MessageBox.Show("An error occurred while importing data from Excel: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("sTrade cannot currently be access. Please try again later", "FYI", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Application.Exit()
 
 

@@ -128,8 +128,6 @@ Public Class Transaction_Page
                         portfolioPage.UpdateLabels()
                     End If
 
-                    'UpdateMarketPageLbls() 'update label in market page if it's open
-                    'UpdatePortPageLbls() 'update portfolio page if it's open
 
 
                 Else
@@ -185,6 +183,9 @@ Public Class Transaction_Page
         'add selected stock to watch-list
         WatchList.Add(StocksList.Item(Index))
         CheckifWatched()
+        If watchListPage IsNot Nothing Then
+            watchListPage.DisplayData()
+        End If
     End Sub
     Private Sub CheckifWatched()
         'if the stock is already in the watch-list disable the button
