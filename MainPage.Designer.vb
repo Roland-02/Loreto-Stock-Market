@@ -104,7 +104,7 @@ Partial Class MainPage
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.IsMdiContainer = True
         Me.Name = "MainPage"
-        Me.Text = "MainPage"
+        Me.Text = "sTrade"
         Me.MenuStrip.ResumeLayout(False)
         Me.MenuStrip.PerformLayout()
         Me.ResumeLayout(False)

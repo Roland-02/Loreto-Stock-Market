@@ -1,8 +1,10 @@
-﻿Public Class WatchList_Page
+﻿Imports System.Windows.Forms
+
+Public Class WatchList_Page
     'ticker symbol, company name, price change, date added
     Dim MyFormat As String = "{0,-15}{1,-50}{2,-20}{3,-25}{4,-25}" 'format list box
     Private Sub WatchList_Page_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.WindowState = Windows.Forms.FormWindowState.Maximized
+        Me.WindowState = FormWindowState.Maximized
         DisplayData() 'display watched stock in list box
     End Sub
     Public Sub DisplayData()
@@ -51,5 +53,17 @@
         End Try
 
     End Sub
+
+    Private Sub WatchList_Page_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to exit? All progress will be lost.", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If result = DialogResult.No Then
+            e.Cancel = True
+        End If
+    End Sub
+
+    Private Sub ConfirmationDialog_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        Application.Exit()
+    End Sub
+
 
 End Class

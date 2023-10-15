@@ -43,4 +43,5 @@ Public Class Graph_Page
         GraphPrice.ChartAreas(0).AxisY.Interval = CalcYinterval(StocksList.Item(Index).GetStockLow, StocksList.Item(Index).GetStockHigh)
 
     End Sub
+
 End Class

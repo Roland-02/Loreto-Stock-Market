@@ -1,21 +1,37 @@
 ﻿'user can take out loan which they pay back, including interest, over a chosen period
+Imports System.Windows.Forms
+
 Public Class Bank_Page
 
     Private Sub Bank_Page_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.WindowState = FormWindowState.Maximized
+        lockPage()
         'if LTM is less than 100 disable form
+
+
+    End Sub
+
+
+    Private Sub lockPage()
         If User1.Score < 100 Then
-            Me.Enabled = False
+            Enable(False)
         Else
-            If LoanActive = True Then
-                Me.Enabled = False
+            If LoanActive Then
+                Enable(False)
                 LblDisabledMsg.Visible = True
             Else
-                Me.Enabled = True
+                Enable(True)
                 LblDisabledMsg.Visible = False
             End If
         End If
+    End Sub
 
-        Me.WindowState = Windows.Forms.FormWindowState.Maximized 'maximize window
+    Private Sub Enable(pick As Boolean)
+        For Each ctl As Control In Me.Controls
+            If TypeOf ctl Is TextBox Or TypeOf ctl Is GroupBox Or TypeOf ctl Is Button Then
+                ctl.Enabled = pick
+            End If
+        Next ctl
     End Sub
 
     Private Sub RdBtnBarclays_CheckedChanged(sender As Object, e As EventArgs) Handles RdBtnBarclays.CheckedChanged
@@ -66,7 +82,6 @@ Public Class Bank_Page
             TxtbxInt.Text = ("-")
         End If
 
-
     End Sub
     Public Function CheckedBank() As Bank
         'return selected bank
@@ -88,7 +103,7 @@ Public Class Bank_Page
                     DoLoan(CheckedBank(), TxtBxTotRepay.Text, CmoBxTime.Text) 'carry out loan
                 End If
             Else
-                MsgBox("CREDIT INSUFFIENT OR AMOUNT TOO LARGE")
+                MsgBox("CREDIT INSUFFICIENT OR AMOUNT TOO LARGE")
             End If
         Else
             MsgBox("INVALID DATA ENTERED")
@@ -109,6 +124,17 @@ Public Class Bank_Page
         User1.Balance = TxtbxAmount.Text 'increment user's balance
         LoanActive = True
 
+    End Sub
+
+    Private Sub Bank_Page_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to exit? All progress will be lost.", "Exit sTrade?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If result = DialogResult.No Then
+            e.Cancel = True
+        End If
+    End Sub
+
+    Private Sub ConfirmationDialog_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        Application.Exit()
     End Sub
 
 End Class

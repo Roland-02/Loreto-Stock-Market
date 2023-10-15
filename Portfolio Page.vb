@@ -1,10 +1,14 @@
 ﻿'displays the stocks that user is currently invested in
+Imports System.Windows.Forms
+
 Public Class Portfolio_Page
     Dim MyFormat As String = "{0,-10}{1,-53}{2,-25}{3,-25}{4,-25}{5,-25}" 'format list box
+
+    'Dim marketPage As Market_Page
+
     Private Sub Portfolio_Page_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.WindowState = Windows.Forms.FormWindowState.Maximized
-        LblTotProf.Text = ("Total profit: £" + User1.Totalprof.ToString("N"))
-        DisplayData() 'display data to list box upon loading
+        Me.WindowState = FormWindowState.Maximized
+        UpdateLabels()
     End Sub
     Private Sub LstbxPortfolio_DoubleClick(sender As Object, e As EventArgs) Handles LstbxPortfolio.DoubleClick
         'open transaction form on double click
@@ -74,13 +78,28 @@ Public Class Portfolio_Page
         OwnedStocksList.Clear() 'clear list
         LblTotProf.Text = ("Total profit: £" + User1.Totalprof.ToString("N")) 'update label
         DisplayData() 'update table
-        UpdateMarketLabels() 'update balance label in market page if it's open
-    End Sub
-    Sub UpdateMarketLabels()
-        'update label displaying balance in market page if it's open
-        If marketpageList.Count = 1 Then
-            marketpageList.Item(0).LblBalance.Text = ("Balance: £" + User1.Balance.ToString("N"))
+
+        If marketPage IsNot Nothing Then
+            marketPage.UpdateLabels()
         End If
+
+    End Sub
+
+    Sub UpdateLabels()
+        LblTotProf.Text = ("Total profit: £" + User1.Totalprof.ToString("N"))
+        DisplayData() 'display data to list box upon loading
+
+    End Sub
+
+    Private Sub Portfolio_Page_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to exit? All progress will be lost.", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If result = DialogResult.No Then
+            e.Cancel = True
+        End If
+    End Sub
+
+    Private Sub ConfirmationDialog_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        Application.Exit()
     End Sub
 
 End Class

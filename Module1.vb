@@ -1,7 +1,10 @@
-﻿Imports Microsoft.Office.Interop 'needed to access excel files
+﻿Imports System.Runtime.InteropServices
+Imports System.Windows.Forms
+Imports Microsoft.Office.Interop 'needed to access excel files
+Imports System.IO 'check if file is locked
 Module Module1
     Dim random As New Random
-    Dim file As String = CurDir() + "\Stocks.xlsx" 'excel spreadsheet with the stocks
+    Dim file As String = CurDir() + "\stock.xlsx" 'excel spreadsheet with the stocks
     Public Index As Integer = 0 'selected item in list
     Dim idList As New List(Of String) 'stores transaction ID's made to ensure they're unique
     Public LoanActive As Boolean = False 'is the user paying back a loan?
@@ -11,7 +14,7 @@ Module Module1
     Public transList As New List(Of Transaction) 'stores the user's transactions
     Public WatchList As New List(Of Stock) 'stocks added to watchlist
 
-    Public User1 As New User(10000, 0, 0) 'instantiate user object with £10,000, 0 LTMscore and 0 total profit
+    Public User1 As New User(10000, 0, 0) 'initialize user object with £10,000, 0 LTMscore and 0 total profit
 
     Public Barclays As New Bank("Barclays", 10000, 200000, 140, 0, 0) 'high acc rate, low interst rate 
     Public Natwest As New Bank("Natwest", 15000, 250000, 125, 0, 0)
@@ -19,8 +22,13 @@ Module Module1
     Public HSBC As New Bank("HSBC", 25000, 350000, 105, 0, 0) 'low acc rate, high interest
 
     Public TranPageList As New List(Of Transaction_Page) 'stores instances of transaction page
-    Public marketpageList As New List(Of Market_Page) 'stores instances of market page
-    Public portList As New List(Of Portfolio_Page) 'stores instances of portfolio page
+
+    Public marketPage As Market_Page
+    Public watchListPage As WatchList_Page
+    Public historyPage As History_Page
+    Public bankPage As Bank_Page
+    Public portfolioPage As Portfolio_Page
+
 
     Public Structure Transaction 'public scope for easier access
         'record structure for a transaction
@@ -46,8 +54,21 @@ Module Module1
     End Structure
     Sub Main()
 
-
     End Sub
+
+    Private Function IsFileLocked(filePath As String) As Boolean
+
+        Try
+            Using FileStream As New FileStream(filePath, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite)
+                'file is not currently in use
+                Return False
+            End Using
+        Catch ex As IOException
+            'file is locked
+            Return True
+        End Try
+
+    End Function
     Public Sub LoadStocksToList()
         'open stocks file and instantiate new stock objects with values from the excel database
 
@@ -59,31 +80,73 @@ Module Module1
         Dim mktcap As Double = 0
         Dim owned As Long = 0
 
+
+        If IsFileLocked(file) Then
+            MessageBox.Show("Excel file is currently locked by another process")
+            Application.Exit()
+        End If
+
         Dim xl As New Excel.Application
-        xl.Workbooks.Open(file) 'open excel workbook
-        xl.Worksheets("Sheet1").Activate() 'activate sheet in workbook with the data
-        xl.ActiveWorkbook.RefreshAll() 'refresh data connections in workbook before reading data
-        Dim totalRow As Integer = xl.ActiveSheet.UsedRange.Rows.Count 'total number of rows
 
-        For i = 1 To totalRow
-            With xl.Worksheets("Sheet1")
-                ticker = .Range(("B" + i.ToString)).value  'assign value from cell in each row to variable
-                name = .Range(("C" + i.ToString)).value
-                val = .Range(("D" + i.ToString)).value
-                vol = .Range(("E" + i.ToString)).value
-                mktcap = .Range(("I" + i.ToString)).value
-                owned = False
-            End With
-            name = FormatStockName(name) 'format the stock name to exclude uneeded characters
+        Dim wb As Excel.Workbook = Nothing
+        Dim ws As Excel.Worksheet = Nothing
 
-            Dim Values As New List(Of Double) 'list of price values for that stock item
-            Values.Add(val) 'add the first stock price to the list of vlaues 
-            Dim Times As New List(Of DateTime) 'list of times of price change
-            Times.Add(DateTime.Now) 'add first tm=ime to list of times
-            'create new object and add to list of objects
-            StocksList.Add(New Stock(ticker, name, vol, mktcap, Values, Times, owned))
-        Next
-        xl.Workbooks.Close() 'close workbook
+        Try
+
+            Console.WriteLine("Connecting to database...")
+
+            xl.DisplayAlerts = False
+            xl.ScreenUpdating = False
+
+            wb = xl.Workbooks.Open(file, [ReadOnly]:=True, UpdateLinks:=False)
+            ws = DirectCast(wb.Worksheets("Sheet1"), Excel.Worksheet)
+            wb.RefreshAll()
+
+
+            Dim totalRow As Integer = xl.ActiveSheet.UsedRange.Rows.Count 'total number of rows
+
+            For i = 1 To totalRow
+                With xl.Worksheets("Sheet1")
+                    ticker = .Range(("B" + i.ToString)).value  'assign value from cell in each row to variable
+                    name = .Range(("C" + i.ToString)).value
+                    val = .Range(("D" + i.ToString)).value
+                    vol = .Range(("E" + i.ToString)).value
+                    mktcap = .Range(("I" + i.ToString)).value
+                    owned = False
+                End With
+                name = FormatStockName(name) 'format the stock name to exclude uneeded characters
+
+                Dim Values As New List(Of Double) 'list of price values for that stock item
+                Values.Add(val) 'add the first stock price to the list of vlaues 
+                Dim Times As New List(Of DateTime) 'list of times of price change
+                Times.Add(DateTime.Now) 'add first tm=ime to list of times
+                'create new object and add to list of objects
+                StocksList.Add(New Stock(ticker, name, vol, mktcap, Values, Times, owned))
+            Next
+
+        Catch ex As Exception
+
+            MessageBox.Show("An error occurred while importing data from Excel: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Application.Exit()
+
+
+        Finally
+
+            xl.DisplayAlerts = True
+            xl.ScreenUpdating = True
+
+            If ws IsNot Nothing Then Marshal.ReleaseComObject(ws)
+            If ws IsNot Nothing Then
+                wb.Close(False)
+                Marshal.ReleaseComObject(wb)
+            End If
+            If xl IsNot Nothing Then
+                xl.Quit()
+                Marshal.ReleaseComObject(xl)
+            End If
+
+        End Try
+
 
     End Sub
     Sub RefreshData()
@@ -188,7 +251,7 @@ Module Module1
         Dim j As Integer = 0
         Do
             Randomize()
-            place = random.Next(0, 352)
+            place = random.Next(0, 351)
             If IsInList(StocksToChange, place) = False Then
                 StocksToChange.Add(place) 'only add to list if it's not already in there
                 j += 1
@@ -320,25 +383,10 @@ Module Module1
         Return place
     End Function
 
-    Sub UpdateMarketPageLbls()
-        'update labels in market page if it's open
-        If marketpageList.Count = 1 Then 'if market page is open
-            marketpageList.Item(0).LblBalance.Text = ("Balance: £" + User1.Balance().ToString("N")) 'call property to update label
-            marketpageList.Item(0).LblScore.Text = ("Score: " + User1.Score().ToString)
-        End If
-    End Sub
-    Sub UpdatePortPageLbls()
-        'update lables in portfolio page if it's open
-        If portList.Count = 1 Then
-            portList.Item(0).LblTotProf.Text = ("Total profit: £" + User1.Totalprof().ToString("N"))
-            portList.Item(0).DisplayData()
-        End If
-    End Sub
-
     Public Sub DefaultLoan()
         'user can't afford loan payment; take all assets
-        MsgBox("YOU CANNOT AFFORD TO PAY YOUR LOAN, YOU ACCOUNT WILL NOW BE DEFAULTED")
-        portList.Item(0).SellOwnedStocks()
+        MsgBox("YOU CANNOT AFFORD TO PAY YOUR LOAN, YOUR ACCOUNT WILL NOW BE DEFAULTED")
+        portfolioPage.SellOwnedStocks()
         User1.Balance = -(User1.Balance)
         User1.Score = -(User1.Score)
     End Sub

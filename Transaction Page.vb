@@ -3,6 +3,7 @@
 'graph page opened from this form
 Public Class Transaction_Page
     Public graphpageList As New List(Of Graph_Page) 'stores instances of graph pages
+
     Private Sub Transaction_Page_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             LblBalance.Text = ("Balance: £" + User1.Balance.ToString("N"))
@@ -57,12 +58,15 @@ Public Class Transaction_Page
                     OwnedStocksList.Item(tempPos).UpdateOwnedShares(InpQty) 'update number of shares owned
 
                     'update labels
-                    LblBalance.Text = ("Balance: " + User1.Balance.ToString("N"))
+                    LblBalance.Text = ("Balance: £" + User1.Balance.ToString("N"))
                     LblStockProf.Text = ("Volume: " + StocksList.Item(Index).GetStockVol().ToString("N0"))
                     LblOwnedShares.Text = ("Owned shares: " + StocksList.Item(Index).GetOwnedShares().ToString("N0"))
 
-                    UpdateMarketPageLbls() 'update labels in market page
-                    UpdatePortPageLbls() 'update labels in portolio page
+                    If marketPage IsNot Nothing Then
+                        marketPage.UpdateLabels()
+                    End If
+
+
 
                 Else
                     MsgBox("Insufficient funds")
@@ -112,11 +116,22 @@ Public Class Transaction_Page
 
                     'update labels
                     LblStockProf.Text = ("Volume: " + StocksList.Item(Index).GetStockVol().ToString("N0"))
-                    LblBalance.Text = ("Balance: " + User1.Balance.ToString("N"))
+                    LblBalance.Text = ("Balance: £" + User1.Balance.ToString("N"))
                     LblOwnedShares.Text = ("Owned shares: " + StocksList.Item(Index).GetOwnedShares().ToString("N0"))
 
-                    UpdateMarketPageLbls() 'update label in market page if it's open
-                    UpdatePortPageLbls() 'update portfolio page if it's open
+
+                    If marketPage IsNot Nothing Then
+                        marketPage.UpdateLabels()
+                    End If
+
+                    If portfolioPage IsNot Nothing Then
+                        portfolioPage.UpdateLabels()
+                    End If
+
+                    'UpdateMarketPageLbls() 'update label in market page if it's open
+                    'UpdatePortPageLbls() 'update portfolio page if it's open
+
+
                 Else
                     MsgBox("You do not own this many shares")
                 End If
@@ -134,7 +149,7 @@ Public Class Transaction_Page
                 Dim InpQty = Convert.ToInt32(TxtbxQty.Text)
                 LbltCost.Text = ("Cost: £" + (CalculateCost(InpQty, StocksList.Item(Index).GetStockPrice())).ToString("N"))
             Else
-                LbltCost.Text = ("Cost: -")
+                LbltCost.Text = ("Cost: £-")
             End If
         Catch ex As OverflowException 'prevents crash from overflow
             MsgBox("Enter a smaller value")

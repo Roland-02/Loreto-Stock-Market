@@ -1,79 +1,91 @@
 ﻿'first page to open
 'contains all teh timers for updating stock price and deducting loan payments 
 'has menu to navigate between pages
+Imports System.Windows.Forms
+Imports System.Windows.Forms.DataVisualization.Charting
+Imports Microsoft.Office.Interop.Excel
+
 Public Class MainPage
     Dim MarketOpen As Boolean = False  'is the real life stock exhange is open
-    Dim watchpageList As New List(Of WatchList_Page) 'stores instances of watchlist page
-    Dim histpageList As New List(Of History_Page) 'stores instances of history page
-    Dim bankpageList As New List(Of Bank_Page) 'stores instances of bank page
+
+
 
     Private Sub MainPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadStocksToList() 'load stocks from database to list
         'open market page straight away
-        Dim market As New Market_Page()
-        market.MdiParent = Me
-        marketpageList.Add(market)
-        market.Show()
-    End Sub
-    Private Sub MainPgeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MainPgeToolStripMenuItem.Click
-        'open market page
-        Dim market As New Market_Page()
-        market.MdiParent = Me
-        market.Show()
-        'if market page is already open, close one of the pages
-        marketpageList.Add(market)
-        If marketpageList.Count > 1 Then
-            marketpageList.Item(0).Close()
-            marketpageList.RemoveAt(0)
+        LoadStocksToList() 'load stocks from database to list
+
+        If marketPage Is Nothing Then
+            marketPage = New Market_Page()
+            marketPage.MdiParent = Me
+
         End If
+        marketPage.Show()
+
+    End Sub
+
+
+    Private Sub MainPageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MainPgeToolStripMenuItem.Click
+        'open market page
+
+        If marketPage Is Nothing Then
+            marketPage = New Market_Page()
+            marketPage.MdiParent = Me
+        End If
+
+        marketPage.Show()
+        marketPage.BringToFront()
+
     End Sub
     Private Sub WatchListToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles WatchListToolStripMenuItem.Click
         'open watchlist page
-        Dim watchpage As New WatchList_Page
-        watchpage.MdiParent = Me
-        watchpage.Show()
-        'if watchlist page is already open, close one of the pages
-        watchpageList.Add(watchpage)
-        If watchpageList.Count > 1 Then
-            watchpageList.Item(0).Close()
-            watchpageList.RemoveAt(0)
+
+        If watchListPage Is Nothing Then
+            watchListPage = New WatchList_Page()
+            watchListPage.MdiParent = Me
         End If
+
+        watchListPage.Show()
+        watchListPage.BringToFront()
+
     End Sub
     Private Sub HistoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HistoryToolStripMenuItem.Click
         'open history page
-        Dim histpage As New History_Page
-        histpage.MdiParent = Me
-        histpage.Show()
-        'if history pay is already open, close one of the pages
-        histpageList.Add(histpage)
-        If histpageList.Count > 1 Then
-            histpageList.Item(0).Close()
-            histpageList.RemoveAt(0)
+
+        If historyPage Is Nothing Then
+            historyPage = New History_Page()
+            historyPage.MdiParent = Me
         End If
+        historyPage.Show()
+        historyPage.BringToFront()
+
     End Sub
     Private Sub PortfolioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PortfolioToolStripMenuItem.Click
         'open portfolio page
-        Dim portfolio As New Portfolio_Page
-        portfolio.MdiParent = Me
-        portfolio.Show()
-        'if portfolio is already open, close one of the pages
-        portList.Add(portfolio)
-        If portList.Count > 1 Then
-            portList.Item(0).Close()
-            portList.RemoveAt(0)
+
+        If portfolioPage Is Nothing Then
+            portfolioPage = New Portfolio_Page()
+            portfolioPage.MdiParent = Me
+
         End If
+        portfolioPage.Show()
+        portfolioPage.BringToFront()
+
+
+
     End Sub
     Private Sub BankToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BankToolStripMenuItem.Click
         'open bank page
-        Dim bank As New Bank_Page
-        bank.MdiParent = Me
-        bank.Show()
-        'if bank is already open, close one of the pages 
-        bankpageList.Add(bank)
-        If bankpageList.Count > 1 Then
-            bankpageList.Item(0).Close()
-            bankpageList.RemoveAt(0)
+
+        If bankPage Is Nothing Then
+            bankPage = New Bank_Page()
+            bankPage.MdiParent = Me
+
         End If
+        bankPage.Show()
+        bankPage.BringToFront()
+
+
+
     End Sub
 
     Private Sub ChangeTimer_Tick(sender As Object, e As EventArgs) Handles ChangeTimer.Tick
@@ -86,13 +98,20 @@ Public Class MainPage
         Next
 
         'if market page is open update table
-        If marketpageList.Count = 1 Then
-            marketpageList.Item(0).DisplayData()
+        If marketPage IsNot Nothing Then
+            marketPage.DisplayData()
         End If
+
         'if watch page is open update table
-        If watchpageList.Count = 1 Then
-            watchpageList.Item(0).DisplayData()
+        If watchListPage IsNot Nothing Then
+            watchListPage.DisplayData()
         End If
+
+        'if portfolio page is open update table
+        If portfolioPage IsNot Nothing Then
+            portfolioPage.DisplayData()
+        End If
+
         'if transaction page is open update table
         If TranPageList.Count = 1 Then
             TranPageList.Item(0).UpdatePageLabels(Index)
@@ -100,10 +119,7 @@ Public Class MainPage
                 TranPageList.Item(0).graphpageList.Item(0).UpdateGraph(StocksList.Item(Index).GetStockPrice(), DateTime.Now)
             End If
         End If
-        'if portfolio page is open update table
-        If portList.Count = 1 Then
-            portList.Item(0).DisplayData()
-        End If
+
 
 
     End Sub
@@ -113,13 +129,20 @@ Public Class MainPage
         RefreshData()
 
         'if market page is open update table
-        If marketpageList.Count = 1 Then
-            marketpageList.Item(0).DisplayData()
+        If marketPage IsNot Nothing Then
+            marketPage.DisplayData()
         End If
+
         'if watch page is open update table
-        If watchpageList.Count = 1 Then
-            watchpageList.Item(0).DisplayData()
+        If watchListPage IsNot Nothing Then
+            watchListPage.DisplayData()
         End If
+
+        'if portfolio page is open update table
+        If portfolioPage IsNot Nothing Then
+            portfolioPage.DisplayData()
+        End If
+
         'update transaction page
         If TranPageList.Count = 1 Then
             TranPageList.Item(0).UpdatePageLabels(Index)
@@ -127,18 +150,18 @@ Public Class MainPage
                 TranPageList.Item(0).graphpageList.Item(0).UpdateGraph(StocksList.Item(Index).GetStockPrice(), StocksList.Item(Index).GetRecentTime())
             End If
         End If
-        'if portfolio page is open update table
-        If portList.Count = 1 Then
-            portList.Item(0).DisplayData()
-        End If
+
+
+
 
     End Sub
     Private Sub TimeTimer_Tick(sender As Object, e As EventArgs) Handles TimeTimer.Tick
         'display current time and day in market page
-        If marketpageList.Count = 1 Then
-            marketpageList.Item(0).LblTime.Text = TimeString
-            marketpageList.Item(0).LblDate.Text = DateString
+        If marketPage IsNot Nothing Then
+            marketPage.LblTime.Text = TimeString
+            marketPage.LblDate.Text = DateString
         End If
+
 
         'if market is closed, values don't need to be updated from file 
         If isMarketOpen() = True Then
@@ -153,7 +176,8 @@ Public Class MainPage
         If LoanActive = True Then
             If PaymentTimer.Enabled = False Then
                 PaymentTimer.Enabled = True
-                Dim lender As Bank = bankpageList.Item(0).CheckedBank
+                'Dim lender As Bank = bankpageList.Item(0).CheckedBank
+                Dim lender As Bank = bankPage.CheckedBank
             End If
         Else
             PaymentTimer.Enabled = False
@@ -162,7 +186,8 @@ Public Class MainPage
     Private Sub PaymentTimer_Tick(sender As Object, e As EventArgs) Handles PaymentTimer.Tick
         'user makes loan repayment
         'interval is already set to 10 mintutes, so user won't pay straight away
-        Dim lender As Bank = bankpageList.Item(0).CheckedBank()
+
+        Dim lender As Bank = bankPage.CheckedBank
 
         If User1.Balance > lender.BankLoan Then
             If lender.BankLoan <= 0 Then
@@ -180,7 +205,7 @@ Public Class MainPage
             LoanActive = False
         End If
 
-        UpdateMarketPageLbls()
+        marketPage.UpdateLabels()
 
     End Sub
     Function isMarketOpen() As Boolean
