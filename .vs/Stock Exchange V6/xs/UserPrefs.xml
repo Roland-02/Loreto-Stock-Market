@@ -1,0 +1,25 @@
+﻿<Properties StartupConfiguration="{DE6A8A7F-7CA8-4E53-BCA2-7A788B51CE3D}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Module1.vb">
+    <Files>
+      <File FileName="Module1.vb" Line="27" Column="26" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Stock Exchange V6" expanded="True">
+            <Node name="Stock Exchange V6" expanded="True">
+              <Node name="Module1.vb" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Stock_220Exchange_220V6 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+</Properties>

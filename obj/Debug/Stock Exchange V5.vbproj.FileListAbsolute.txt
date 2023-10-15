@@ -1,0 +1,36 @@
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V5\bin\Debug\Stock Exchange V5.exe.config
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V5\bin\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V5\bin\Debug\Stock Exchange V5.pdb
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V5\bin\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V5\obj\Debug\Stock Exchange V5.vbprojAssemblyReference.cache
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V5\obj\Debug\Stock_Exchange_V5.Market_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V5\obj\Debug\Stock_Exchange_V5.Resources.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V5\obj\Debug\Stock Exchange V5.vbproj.GenerateResource.cache
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V5\obj\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V5\obj\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V5\obj\Debug\Stock Exchange V5.pdb
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V5\bin\Debug\ExcelDataReader.DataSet.dll
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V5\bin\Debug\ExcelDataReader.dll
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V5\bin\Debug\ExcelDataReader.pdb
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V5\bin\Debug\ExcelDataReader.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V5\bin\Debug\ExcelDataReader.DataSet.pdb
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V5\bin\Debug\ExcelDataReader.DataSet.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V5\obj\Debug\Stock Exchange V5.vbproj.CopyComplete
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\bin\Debug\Stock Exchange V5.exe.config
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\bin\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\bin\Debug\Stock Exchange V5.pdb
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\bin\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\bin\Debug\ExcelDataReader.DataSet.dll
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\bin\Debug\ExcelDataReader.dll
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\bin\Debug\ExcelDataReader.pdb
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\bin\Debug\ExcelDataReader.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\bin\Debug\ExcelDataReader.DataSet.pdb
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\bin\Debug\ExcelDataReader.DataSet.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\obj\Debug\Stock Exchange V5.vbprojAssemblyReference.cache
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\obj\Debug\Stock_Exchange_V5.Market_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\obj\Debug\Stock_Exchange_V5.Resources.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\obj\Debug\Stock Exchange V5.vbproj.GenerateResource.cache
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\obj\Debug\Stock Exchange V5.vbproj.CopyComplete
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\obj\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\obj\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\obj\Debug\Stock Exchange V5.pdb

@@ -85,7 +85,7 @@ Partial Class Market_Page
         Me.LblLoretoTradeMarket.Name = "LblLoretoTradeMarket"
         Me.LblLoretoTradeMarket.Size = New System.Drawing.Size(450, 71)
         Me.LblLoretoTradeMarket.TabIndex = 11
-        Me.LblLoretoTradeMarket.Text = "Loreto Stock Exchange"
+        Me.LblLoretoTradeMarket.Text = "Wizard Stock Exchange"
         Me.LblLoretoTradeMarket.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'LblScore

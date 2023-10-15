@@ -1,0 +1,173 @@
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\bin\Debug\Stock Exchange V5.exe.config
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\bin\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\bin\Debug\Stock Exchange V5.pdb
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\bin\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\obj\Debug\Stock Exchange V6.vbprojAssemblyReference.cache
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\obj\Debug\Stock_Exchange_V5.Resources.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\obj\Debug\Stock Exchange V6.vbproj.GenerateResource.cache
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\obj\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\obj\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\obj\Debug\Stock Exchange V5.pdb
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V6\obj\Debug\Stock_Exchange_V5.Market_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V7\bin\Debug\Stock Exchange V5.exe.config
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V7\bin\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V7\bin\Debug\Stock Exchange V5.pdb
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V7\bin\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V7\obj\Debug\Stock Exchange V6.vbprojAssemblyReference.cache
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V7\obj\Debug\Stock_Exchange_V5.Market_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V7\obj\Debug\Stock_Exchange_V5.Resources.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V7\obj\Debug\Stock Exchange V6.vbproj.GenerateResource.cache
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V7\obj\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V7\obj\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V7\obj\Debug\Stock Exchange V5.pdb
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V8\bin\Debug\Stock Exchange V5.exe.config
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V8\bin\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V8\bin\Debug\Stock Exchange V5.pdb
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V8\bin\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V8\obj\Debug\Stock Exchange V6.vbprojAssemblyReference.cache
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V8\obj\Debug\Stock_Exchange_V5.Market_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V8\obj\Debug\Stock_Exchange_V5.Resources.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V8\obj\Debug\Stock_Exchange_V5.Transaction_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V8\obj\Debug\Stock Exchange V6.vbproj.GenerateResource.cache
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V8\obj\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V8\obj\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V8\obj\Debug\Stock Exchange V5.pdb
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V8\obj\Debug\Stock_Exchange_V5.MainForm.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V9\bin\Debug\Stock Exchange V5.exe.config
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V9\bin\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V9\bin\Debug\Stock Exchange V5.pdb
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V9\bin\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V9\obj\Debug\Stock Exchange V6.vbprojAssemblyReference.cache
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V9\obj\Debug\Stock_Exchange_V5.MainForm.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V9\obj\Debug\Stock_Exchange_V5.Market_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V9\obj\Debug\Stock_Exchange_V5.Resources.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V9\obj\Debug\Stock_Exchange_V5.Transaction_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V9\obj\Debug\Stock Exchange V6.vbproj.GenerateResource.cache
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V9\obj\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V9\obj\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V9\obj\Debug\Stock Exchange V5.pdb
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V10\obj\Debug\Stock Exchange V6.vbprojAssemblyReference.cache
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V10\obj\Debug\Stock_Exchange_V5.Market_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V10\obj\Debug\Stock_Exchange_V5.Resources.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V10\obj\Debug\Stock_Exchange_V5.Transaction_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V10\obj\Debug\Stock Exchange V6.vbproj.GenerateResource.cache
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V10\obj\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V10\obj\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V10\obj\Debug\Stock Exchange V5.pdb
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V10\bin\Debug\Stock Exchange V5.exe.config
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V10\bin\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V10\bin\Debug\Stock Exchange V5.pdb
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V10\bin\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V10\obj\Debug\Stock_Exchange_V5.MainPage.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V10\obj\Debug\Stock_Exchange_V5.WatchList_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V10\obj\Debug\Stock_Exchange_V5.History_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V10\obj\Debug\Stock_Exchange_V5.Portfolio_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V11\bin\Debug\Stock Exchange V5.exe.config
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V11\bin\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V11\bin\Debug\Stock Exchange V5.pdb
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V11\bin\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V11\obj\Debug\Stock Exchange V6.vbprojAssemblyReference.cache
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V11\obj\Debug\Stock_Exchange_V5.Bank_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V11\obj\Debug\Stock_Exchange_V5.History_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V11\obj\Debug\Stock_Exchange_V5.MainPage.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V11\obj\Debug\Stock_Exchange_V5.Market_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V11\obj\Debug\Stock_Exchange_V5.Resources.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V11\obj\Debug\Stock_Exchange_V5.Portfolio_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V11\obj\Debug\Stock_Exchange_V5.Transaction_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V11\obj\Debug\Stock_Exchange_V5.WatchList_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V11\obj\Debug\Stock Exchange V6.vbproj.GenerateResource.cache
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V11\obj\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V11\obj\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V11\obj\Debug\Stock Exchange V5.pdb
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V12\bin\Debug\Stock Exchange V5.exe.config
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V12\bin\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V12\bin\Debug\Stock Exchange V5.pdb
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V12\bin\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V12\obj\Debug\Stock Exchange V6.vbprojAssemblyReference.cache
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V12\obj\Debug\Stock_Exchange_V5.Bank_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V12\obj\Debug\Stock_Exchange_V5.Graph_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V12\obj\Debug\Stock_Exchange_V5.History_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V12\obj\Debug\Stock_Exchange_V5.MainPage.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V12\obj\Debug\Stock_Exchange_V5.Market_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V12\obj\Debug\Stock_Exchange_V5.Resources.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V12\obj\Debug\Stock_Exchange_V5.Portfolio_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V12\obj\Debug\Stock_Exchange_V5.Transaction_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V12\obj\Debug\Stock_Exchange_V5.WatchList_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V12\obj\Debug\Stock Exchange V6.vbproj.GenerateResource.cache
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V12\obj\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V12\obj\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange V12\obj\Debug\Stock Exchange V5.pdb
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange Final Version\bin\Debug\Stock Exchange V5.exe.config
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange Final Version\bin\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange Final Version\bin\Debug\Stock Exchange V5.pdb
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange Final Version\bin\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange Final Version\obj\Debug\Stock Exchange V6.vbprojAssemblyReference.cache
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.Bank_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.Graph_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.History_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.MainPage.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.Market_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.Resources.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.Portfolio_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.Transaction_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.WatchList_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange Final Version\obj\Debug\Stock Exchange V6.vbproj.GenerateResource.cache
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange Final Version\obj\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange Final Version\obj\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Stock Exchange Final Version\obj\Debug\Stock Exchange V5.pdb
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Program\Stock Exchange Final Version\bin\Debug\Stock Exchange V5.exe.config
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Program\Stock Exchange Final Version\bin\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Program\Stock Exchange Final Version\bin\Debug\Stock Exchange V5.pdb
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Program\Stock Exchange Final Version\bin\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock Exchange V6.vbprojAssemblyReference.cache
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.Bank_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.Graph_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.History_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.MainPage.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.Market_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.Resources.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.Portfolio_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.Transaction_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.WatchList_Page.resources
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock Exchange V6.vbproj.GenerateResource.cache
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock Exchange V5.pdb
+C:\Users\rolan\OneDrive\Documents\A-level\Computer Science\Coursework\Program\Stock Exchange Final Version\bin\Debug\Stock Exchange V5.exe.config
+C:\Users\rolan\OneDrive\Documents\A-level\Computer Science\Coursework\Program\Stock Exchange Final Version\bin\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\A-level\Computer Science\Coursework\Program\Stock Exchange Final Version\bin\Debug\Stock Exchange V5.pdb
+C:\Users\rolan\OneDrive\Documents\A-level\Computer Science\Coursework\Program\Stock Exchange Final Version\bin\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\A-level\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock Exchange V6.vbprojAssemblyReference.cache
+C:\Users\rolan\OneDrive\Documents\A-level\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.Bank_Page.resources
+C:\Users\rolan\OneDrive\Documents\A-level\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.Graph_Page.resources
+C:\Users\rolan\OneDrive\Documents\A-level\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.History_Page.resources
+C:\Users\rolan\OneDrive\Documents\A-level\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.MainPage.resources
+C:\Users\rolan\OneDrive\Documents\A-level\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.Market_Page.resources
+C:\Users\rolan\OneDrive\Documents\A-level\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.Resources.resources
+C:\Users\rolan\OneDrive\Documents\A-level\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.Portfolio_Page.resources
+C:\Users\rolan\OneDrive\Documents\A-level\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.Transaction_Page.resources
+C:\Users\rolan\OneDrive\Documents\A-level\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.WatchList_Page.resources
+C:\Users\rolan\OneDrive\Documents\A-level\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock Exchange V6.vbproj.GenerateResource.cache
+C:\Users\rolan\OneDrive\Documents\A-level\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\A-level\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\A-level\Computer Science\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock Exchange V5.pdb
+C:\Users\rolan\OneDrive\Documents\A-level\Coursework\Program\Stock Exchange Final Version\bin\Debug\Stock Exchange V5.exe.config
+C:\Users\rolan\OneDrive\Documents\A-level\Coursework\Program\Stock Exchange Final Version\bin\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\A-level\Coursework\Program\Stock Exchange Final Version\bin\Debug\Stock Exchange V5.pdb
+C:\Users\rolan\OneDrive\Documents\A-level\Coursework\Program\Stock Exchange Final Version\bin\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\A-level\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock Exchange V6.vbproj.AssemblyReference.cache
+C:\Users\rolan\OneDrive\Documents\A-level\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock Exchange V6.vbproj.SuggestedBindingRedirects.cache
+C:\Users\rolan\OneDrive\Documents\A-level\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.Bank_Page.resources
+C:\Users\rolan\OneDrive\Documents\A-level\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.Graph_Page.resources
+C:\Users\rolan\OneDrive\Documents\A-level\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.History_Page.resources
+C:\Users\rolan\OneDrive\Documents\A-level\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.MainPage.resources
+C:\Users\rolan\OneDrive\Documents\A-level\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.Market_Page.resources
+C:\Users\rolan\OneDrive\Documents\A-level\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.Resources.resources
+C:\Users\rolan\OneDrive\Documents\A-level\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.Portfolio_Page.resources
+C:\Users\rolan\OneDrive\Documents\A-level\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.Transaction_Page.resources
+C:\Users\rolan\OneDrive\Documents\A-level\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock_Exchange_V5.WatchList_Page.resources
+C:\Users\rolan\OneDrive\Documents\A-level\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock Exchange V6.vbproj.GenerateResource.cache
+C:\Users\rolan\OneDrive\Documents\A-level\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock Exchange V6.vbproj.CoreCompileInputs.cache
+C:\Users\rolan\OneDrive\Documents\A-level\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock Exchange V5.exe
+C:\Users\rolan\OneDrive\Documents\A-level\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock Exchange V5.xml
+C:\Users\rolan\OneDrive\Documents\A-level\Coursework\Program\Stock Exchange Final Version\obj\Debug\Stock Exchange V5.pdb

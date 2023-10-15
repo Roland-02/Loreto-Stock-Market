@@ -1,4 +1,3 @@
-﻿'displays stock name, price etc
 Imports System.Windows.Forms
 
 Public Class Market_Page
@@ -61,4 +60,5 @@ Public Class Market_Page
     Private Sub ConfirmationDialog_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
         Application.Exit()
     End Sub
+
 End Class

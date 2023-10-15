@@ -1,7 +1,6 @@
 ﻿'displays past transactions, e.g. stock sales and purchases as well as loan payments
 Imports System.Windows.Forms
 
-
 Public Class History_Page
     Dim MyFormat As String = "{0,-50}{1,-25}{2,-15}{3,-30}{4,-25}" 'format list box
     Private Sub History_Page_Load(sender As Object, e As EventArgs) Handles MyBase.Load
