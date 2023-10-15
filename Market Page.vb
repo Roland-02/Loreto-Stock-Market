@@ -3,7 +3,7 @@ Imports System.Windows.Forms
 Public Class Market_Page
 
     'abrev, name, current price, price movement, avg change
-    Dim MyFormat As String = "{0,-10}{1,-50}{2,-20}{3,-20}{4,-25}" 'format list box
+    ReadOnly MyFormat As String = "{0,-10}{1,-50}{2,-20}{3,-20}{4,-25}" 'format list box
 
     Private Sub Market_Page_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.WindowState = FormWindowState.Maximized

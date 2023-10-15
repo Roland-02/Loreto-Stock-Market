@@ -2,7 +2,7 @@
 
 Public Class WatchList_Page
     'ticker symbol, company name, price change, date added
-    Dim MyFormat As String = "{0,-15}{1,-50}{2,-20}{3,-25}{4,-25}" 'format list box
+    ReadOnly MyFormat As String = "{0,-15}{1,-50}{2,-20}{3,-25}{4,-25}" 'format list box
     Private Sub WatchList_Page_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.WindowState = FormWindowState.Maximized
         DisplayData() 'display watched stock in list box
