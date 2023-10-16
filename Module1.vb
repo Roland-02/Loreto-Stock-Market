@@ -81,6 +81,7 @@ Module Module1
         Dim owned As Long = 0
 
 
+
         If IsFileLocked(file) Then
             MessageBox.Show("Excel file is currently locked by another process")
             Application.Exit()
@@ -98,10 +99,20 @@ Module Module1
             xl.DisplayAlerts = False
             xl.ScreenUpdating = False
 
+            'put a pause here
+
             wb = xl.Workbooks.Open(file, [ReadOnly]:=True, UpdateLinks:=False)
+
+            Do While Not xl.Ready
+                Threading.Thread.Sleep(6000) ' Pauses the code execution milliseconds
+            Loop
+
             ws = DirectCast(wb.Worksheets("Sheet1"), Excel.Worksheet)
             wb.RefreshAll()
 
+            Do While Not xl.Ready
+                Threading.Thread.Sleep(6000) ' Pauses the code execution milliseconds
+            Loop
 
             Dim totalRow As Integer = xl.ActiveSheet.UsedRange.Rows.Count 'total number of rows
 
@@ -126,9 +137,8 @@ Module Module1
 
         Catch ex As Exception
 
-            MessageBox.Show("sTrade cannot currently be access. Please try again later", "FYI", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("WSM cannot currently be accessed. Please try again later", ":(", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Application.Exit()
-
 
         Finally
 

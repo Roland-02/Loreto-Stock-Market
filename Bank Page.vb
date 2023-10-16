@@ -127,7 +127,7 @@ Public Class Bank_Page
     End Sub
 
     Private Sub Bank_Page_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        Dim result As DialogResult = MessageBox.Show("Are you sure you want to exit? All progress will be lost.", "Exit sTrade?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to exit? All progress will be lost.", "Exit WSM?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If result = DialogResult.No Then
             e.Cancel = True
         End If
