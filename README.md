@@ -1,6 +1,6 @@
-# Loreto Stock Market (LSM)
+# Loreto Stock Market
 
-**Loreto Stock Market (LSM)** is a virtual stock trading simulation that allows users to buy and sell shares of real-life companies listed on the London Stock Exchange using virtual currency. The simulator includes a virtual banking system with customizable loan options, making it an engaging learning tool for both finance students and professionals.
+**LSM** is a virtual stock trading simulation that allows users to buy and sell shares of real-life companies listed on the London Stock Exchange using virtual currency. The simulator includes a virtual banking system with customizable loan options, making it an engaging learning tool for both finance students and professionals.
 
 ## Key Features:
 
