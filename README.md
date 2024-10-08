@@ -54,3 +54,8 @@
 - Created a versatile trading simulator suitable for both educational and professional use.
 - Implemented complex banking and stock-trading mechanics with realistic financial consequences.
 - Designed an intuitive GUI that enhances user experience while providing rich financial insights.
+
+
+<img width="451" alt="image" src="https://github.com/user-attachments/assets/5d4438e4-0d52-4010-a0d8-14cf05b25cea">
+<img width="451" alt="image" src="https://github.com/user-attachments/assets/5a0b4b7b-4ee3-4a88-9b5e-82b4a9b3a6a0">
+<img width="211" alt="image" src="https://github.com/user-attachments/assets/d0e3a785-bbb5-485d-8688-408d079b7ba5">
