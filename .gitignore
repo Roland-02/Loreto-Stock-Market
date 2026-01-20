@@ -1,0 +1,28 @@
+# Build outputs
+bin/
+obj/
+out/
+
+# IDE
+.vs/
+.vscode/
+*.user
+*.suo
+*.userprefs
+
+# macOS
+.DS_Store
+*.swp
+*~
+
+# Logs
+*.log
+
+# NuGet
+packages/
+*.nupkg
+project.lock.json
+
+# Secrets
+appsettings.*.local.json
+secrets.json

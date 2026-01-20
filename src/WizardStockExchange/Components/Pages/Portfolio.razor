@@ -1,0 +1,128 @@
+@page "/portfolio"
+@inject GameState GameState
+@inject TradingService TradingService
+@implements IDisposable
+
+<PageTitle>Portfolio - Wizard Stock Exchange</PageTitle>
+
+<div class="page-header">
+    <div class="header-content">
+        <h1>💼 Your Portfolio</h1>
+        <p class="subtitle">Manage your stock investments</p>
+    </div>
+    <div class="portfolio-summary">
+        <div class="summary-stat">
+            <span class="label">Total Value</span>
+            <span class="value">£@TotalValue.ToString("N2")</span>
+        </div>
+        <div class="summary-stat">
+            <span class="label">Total Profit</span>
+            <span class="value @(GameState.CurrentUser.TotalProfit >= 0 ? "positive" : "negative")">
+                £@GameState.CurrentUser.TotalProfit.ToString("N2")
+            </span>
+        </div>
+    </div>
+</div>
+
+@if (GameState.OwnedStocks.Count == 0)
+{
+    <div class="empty-state">
+        <span class="empty-icon">📭</span>
+        <h3>No investments yet</h3>
+        <p>Visit the Market to buy your first stocks!</p>
+        <a href="/" class="btn btn-primary">Go to Market</a>
+    </div>
+}
+else
+{
+    <div class="portfolio-actions">
+        <button class="btn btn-danger" @onclick="ShowSellAllConfirmation">
+            Sell All (£@TotalValue.ToString("N2"))
+        </button>
+    </div>
+
+    <div class="stock-table-container">
+        <table class="stock-table">
+            <thead>
+                <tr>
+                    <th>Ticker</th>
+                    <th>Company</th>
+                    <th class="number">Price (£)</th>
+                    <th class="number">Change</th>
+                    <th class="number">Shares</th>
+                    <th class="number">Value (£)</th>
+                    <th class="number">Pred. Profit</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var stock in GameState.OwnedStocks)
+                {
+                    <tr @onclick="() => SelectStock(stock)">
+                        <td class="ticker">@stock.Ticker</td>
+                        <td class="company">@stock.Name</td>
+                        <td class="number price">@stock.CurrentPrice.ToString("N2")</td>
+                        <td class="number @(stock.PriceChange >= 0 ? "positive" : "negative")">
+                            @(stock.PriceChange >= 0 ? "+" : "")@stock.PriceChange.ToString("N2")
+                        </td>
+                        <td class="number">@stock.OwnedShares.ToString("N0")</td>
+                        <td class="number value">@((stock.CurrentPrice * stock.OwnedShares).ToString("N2"))</td>
+                        <td class="number @(stock.PredictedProfitPercent >= 0 ? "positive" : "negative")">
+                            @stock.PredictedProfitPercent.ToString("N2")%
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+@if (SelectedStock != null)
+{
+    <TradeModal Stock="SelectedStock" OnClose="CloseModal" />
+}
+
+@if (ShowConfirmation)
+{
+    <div class="modal-overlay" @onclick="() => ShowConfirmation = false">
+        <div class="confirm-modal" @onclick:stopPropagation="true">
+            <h3>⚠️ Confirm Sale</h3>
+            <p>Are you sure you want to sell all stocks for £@TotalValue.ToString("N2")?</p>
+            <div class="confirm-buttons">
+                <button class="btn btn-secondary" @onclick="() => ShowConfirmation = false">Cancel</button>
+                <button class="btn btn-danger" @onclick="SellAll">Sell All</button>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private Stock? SelectedStock;
+    private bool ShowConfirmation;
+
+    private decimal TotalValue => GameState.OwnedStocks.Sum(s => s.CurrentPrice * s.OwnedShares);
+
+    protected override void OnInitialized()
+    {
+        GameState.OnStateChanged += OnStateChanged;
+    }
+
+    private async void OnStateChanged()
+    {
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private void SelectStock(Stock stock) => SelectedStock = stock;
+    private void CloseModal() => SelectedStock = null;
+    private void ShowSellAllConfirmation() => ShowConfirmation = true;
+
+    private void SellAll()
+    {
+        TradingService.SellAllStocks();
+        ShowConfirmation = false;
+    }
+
+    public void Dispose()
+    {
+        GameState.OnStateChanged -= OnStateChanged;
+    }
+}

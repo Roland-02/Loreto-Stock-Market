@@ -1,0 +1,140 @@
+@inject GameState GameState
+@inject TradingService TradingService
+
+<div class="modal-overlay" @onclick="OnClose">
+    <div class="modal-content" @onclick:stopPropagation="true">
+        <button class="modal-close" @onclick="OnClose">✕</button>
+        
+        <div class="stock-header">
+            <div class="stock-title">
+                <span class="ticker">@Stock.Ticker</span>
+                <h2>@Stock.Name</h2>
+            </div>
+            <div class="stock-price-main">
+                <span class="current-price">£@Stock.CurrentPrice.ToString("N2")</span>
+                <span class="change @(Stock.PriceChange >= 0 ? "positive" : "negative")">
+                    @(Stock.PriceChange >= 0 ? "▲" : "▼") @Math.Abs(Stock.PriceChange).ToString("N2") (@Stock.PercentChange.ToString("N2")%)
+                </span>
+            </div>
+        </div>
+
+        <div class="stock-stats">
+            <div class="stat-card">
+                <span class="stat-label">Day High</span>
+                <span class="stat-value">£@Stock.High.ToString("N2")</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Day Low</span>
+                <span class="stat-value">£@Stock.Low.ToString("N2")</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Volume</span>
+                <span class="stat-value">@Stock.Volume.ToString("N0")</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Market Cap</span>
+                <span class="stat-value">£@FormatMarketCap(Stock.MarketCap)</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Predicted</span>
+                <span class="stat-value">£@Stock.PredictedValue.ToString("N2")</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Pred. Profit</span>
+                <span class="stat-value @(Stock.PredictedProfitPercent >= 0 ? "positive" : "negative")">
+                    @Stock.PredictedProfitPercent.ToString("N2")%
+                </span>
+            </div>
+        </div>
+
+        <div class="owned-info">
+            <span>You own:</span>
+            <span class="owned-shares">@Stock.OwnedShares.ToString("N0") shares</span>
+            <span class="owned-value">(£@((Stock.OwnedShares * Stock.CurrentPrice).ToString("N2")))</span>
+        </div>
+
+        <div class="trade-section">
+            <div class="quantity-input">
+                <label>Quantity</label>
+                <input type="number" @bind="Quantity" min="1" />
+                <span class="cost-preview">Cost: £@((Quantity * Stock.CurrentPrice).ToString("N2"))</span>
+            </div>
+            <div class="trade-buttons">
+                <button class="btn btn-buy" @onclick="Buy">Buy</button>
+                <button class="btn btn-sell" @onclick="Sell" disabled="@(Stock.OwnedShares == 0)">Sell</button>
+            </div>
+        </div>
+
+        @if (!string.IsNullOrEmpty(Message))
+        {
+            <div class="message @(IsError ? "error" : "success")">@Message</div>
+        }
+
+        @if (Stock.PriceHistory.Count > 1)
+        {
+            <div class="mini-chart">
+                <h4>Price History</h4>
+                <div class="chart-container">
+                    @{
+                        var prices = Stock.PriceHistory.TakeLast(20).ToList();
+                        var min = prices.Min();
+                        var max = prices.Max();
+                        var range = max - min;
+                        if (range == 0) range = 1;
+                    }
+                    <svg viewBox="0 0 400 100" class="price-chart">
+                        <polyline
+                            fill="none"
+                            stroke="@(Stock.PriceChange >= 0 ? "#00d4aa" : "#ff6b6b")"
+                            stroke-width="2"
+                            points="@GetChartPoints(prices, min, range)" />
+                    </svg>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter] public required Stock Stock { get; set; }
+    [Parameter] public EventCallback OnClose { get; set; }
+
+    private int Quantity = 1;
+    private string Message = "";
+    private bool IsError;
+
+    private void Buy()
+    {
+        var result = TradingService.BuyStock(Stock, Quantity);
+        Message = result.Message;
+        IsError = !result.Success;
+    }
+
+    private void Sell()
+    {
+        var result = TradingService.SellStock(Stock, Quantity);
+        Message = result.Message;
+        IsError = !result.Success;
+    }
+
+    private string FormatMarketCap(decimal cap)
+    {
+        if (cap >= 1_000_000_000_000) return $"{cap / 1_000_000_000_000:N1}T";
+        if (cap >= 1_000_000_000) return $"{cap / 1_000_000_000:N1}B";
+        if (cap >= 1_000_000) return $"{cap / 1_000_000:N1}M";
+        return cap.ToString("N0");
+    }
+
+    private string GetChartPoints(List<decimal> prices, decimal min, decimal range)
+    {
+        var points = new List<string>();
+        var step = 400.0 / (prices.Count - 1);
+        for (int i = 0; i < prices.Count; i++)
+        {
+            var x = i * step;
+            var y = 90 - (double)((prices[i] - min) / range) * 80;
+            points.Add($"{x:F1},{y:F1}");
+        }
+        return string.Join(" ", points);
+    }
+}

@@ -1,0 +1,93 @@
+@page "/"
+@inject GameState GameState
+@inject TradingService TradingService
+@implements IDisposable
+
+<PageTitle>Market - Wizard Stock Exchange</PageTitle>
+
+<div class="page-header">
+    <div class="header-content">
+        <h1>📊 Stock Market</h1>
+        <p class="subtitle">Live prices from the London Stock Exchange (simulated)</p>
+    </div>
+    <div class="header-info">
+        <div class="time-display">
+            <span class="time">@DateTime.Now.ToString("HH:mm:ss")</span>
+            <span class="date">@DateTime.Now.ToString("dddd, dd MMMM yyyy")</span>
+        </div>
+    </div>
+</div>
+
+<div class="stock-table-container">
+    <table class="stock-table">
+        <thead>
+            <tr>
+                <th>Ticker</th>
+                <th>Company</th>
+                <th class="number">Price (£)</th>
+                <th class="number">Change (£)</th>
+                <th class="number">Change (%)</th>
+                <th class="number">Volume</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var stock in GameState.AllStocks)
+            {
+                <tr @onclick="() => SelectStock(stock)" class="@(SelectedStock == stock ? "selected" : "")">
+                    <td class="ticker">@stock.Ticker</td>
+                    <td class="company">@stock.Name</td>
+                    <td class="number price">@stock.CurrentPrice.ToString("N2")</td>
+                    <td class="number @(stock.PriceChange >= 0 ? "positive" : "negative")">
+                        @(stock.PriceChange >= 0 ? "+" : "")@stock.PriceChange.ToString("N2")
+                    </td>
+                    <td class="number @(stock.PercentChange >= 0 ? "positive" : "negative")">
+                        @(stock.PercentChange >= 0 ? "+" : "")@stock.PercentChange.ToString("N2")%
+                    </td>
+                    <td class="number volume">@stock.Volume.ToString("N0")</td>
+                    <td class="actions">
+                        <button class="btn-small btn-watch" @onclick="() => WatchStock(stock)" @onclick:stopPropagation="true"
+                                disabled="@GameState.WatchList.Contains(stock)">
+                            @(GameState.WatchList.Contains(stock) ? "👁️" : "➕")
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@if (SelectedStock != null)
+{
+    <TradeModal Stock="SelectedStock" OnClose="CloseModal" />
+}
+
+@code {
+    private Stock? SelectedStock;
+    private Timer? _clockTimer;
+
+    protected override void OnInitialized()
+    {
+        GameState.OnStateChanged += OnStateChanged;
+        _clockTimer = new Timer(_ => InvokeAsync(StateHasChanged), null, 0, 1000);
+    }
+
+    private async void OnStateChanged()
+    {
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private void SelectStock(Stock stock) => SelectedStock = stock;
+    private void CloseModal() => SelectedStock = null;
+
+    private void WatchStock(Stock stock)
+    {
+        TradingService.AddToWatchList(stock);
+    }
+
+    public void Dispose()
+    {
+        GameState.OnStateChanged -= OnStateChanged;
+        _clockTimer?.Dispose();
+    }
+}

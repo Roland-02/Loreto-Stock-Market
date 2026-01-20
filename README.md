@@ -1,61 +1,89 @@
-# Loreto Stock Market
+# Wizard Stock Exchange
 
-**LSM** is a virtual stock trading simulation that allows users to buy and sell shares of real-life companies listed on the London Stock Exchange using virtual currency. The simulator includes a virtual banking system with customizable loan options, making it an engaging learning tool for both finance students and professionals.
+A stock exchange simulator that lets you practice trading with virtual money. Originally built as a Windows Forms VB.NET application, now modernized as a cross-platform Blazor web application.
 
-## Key Features:
+![.NET](https://img.shields.io/badge/.NET-7.0-512BD4?style=flat-square)
+![Blazor](https://img.shields.io/badge/Blazor-Server-512BD4?style=flat-square)
+![Platform](https://img.shields.io/badge/Platform-Cross--Platform-green?style=flat-square)
 
-- **Real-Time & Simulated Stock Prices**: The program fetches real-life stock prices from the London Stock Exchange website, but with additional random fluctuations to allow trading outside market hours.
-- **Stock Value Prediction Tool**: Optionally enabled, this tool analyzes price trends to predict stock value changes, ideal for users who want assistance in making investment decisions.
-- **Virtual Banking System**: Users can apply for loans and manage savings or current accounts with varying interest rates, acceptance requirements, and loan limits depending on the bank.
-- **Interactive Graphs**: Real-time graphs track stock prices over time, providing a visual representation of stock trends. Graphs are updated automatically to display ongoing changes.
-- **Self-Regulating Prices**: The stock values vary with multiple factors, including external stock movements and random adjustments to simulate market conditions.
-- **Loan Default Mechanism**: Users can default on loans if they fail to meet repayment schedules, mimicking real-world consequences like losing assets.
-- **Simple GUI for Seamless Interaction**: The intuitive user interface includes stock tables with price trends, bank options, and visual stock graphs, making it accessible for beginners and finance experts alike.
+## Features
 
-## How to Run:
+- 📊 **Live Market** - View 50 stocks from the London Stock Exchange (simulated) with real-time price updates
+- 💼 **Portfolio Management** - Buy and sell stocks, track your investments
+- 👁️ **Watchlist** - Keep an eye on stocks you're interested in
+- 📋 **Transaction History** - View all your past trades
+- 🏦 **Bank Loans** - Borrow money from various banks to expand your portfolio
+- 📈 **Price Charts** - Visual price history for each stock
+- 🎯 **Score System** - Earn points based on your trading performance
 
-1. Open the solution file `StockExchangeV6.sln` in **Visual Studio Community 2022**.
-2. Run the program on **Windows**.
-3. Ensure **Excel 2016** is installed for graph generation and data tracking.
+## Requirements
 
-## Technology Stack & Skills Used:
+- [.NET 7.0 SDK](https://dotnet.microsoft.com/download/dotnet/7.0) or later
+- Works on macOS, Windows, and Linux
 
-- **Visual Basic.NET**: Backend logic for stock price manipulation, bank features, loan calculations, and user interactions.
-- **Excel Integration**: For generating and displaying live price trend graphs.
-- **GUI Development**: Designed a clean and user-friendly interface for seamless navigation and stock management.
-- **Algorithm Design**: Implemented stock value prediction, interest calculations, loan approval/rejection, and a system for managing stock price fluctuations.
+## Quick Start
 
-## Detailed Features:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Roland-02/WizardStockExchange.git
+   cd Loreto_Stock_Market
+   ```
 
-### Stock Value Prediction Tool:
-- Designed for finance students to learn about trends, with the option to disable it for professionals.
-- Analyzes stock price graphs and predicts whether prices will rise or fall based on trend gradients.
+2. **Run the application**
+   ```bash
+   cd src/WizardStockExchange
+   dotnet run --urls "http://localhost:5000"
+   ```
 
-### Virtual Banking & Loan System:
-- Different banks offer varying interest rates and loan conditions.
-- Loans are accepted or rejected based on the user's credit score (LTM score), bank-specific factors, and the loan amount.
-- Repayments are deducted at regular intervals, and users can choose a loan repayment term.
-- If users default on loans, all assets are seized, mimicking real-life bank practices.
+3. **Open in browser**
+   
+   Navigate to `http://localhost:5000`
 
-### Dynamic Stock Prices:
-- Stock prices are self-regulating and vary based on the performance of other stocks and random factors to ensure market unpredictability.
-- Predictive accuracy varies, making the simulation more realistic and challenging.
+## Project Structure
 
-### Graphical Representation:
-- Users can view historical price trends for each stock through dynamic line graphs, which automatically update as stock prices change.
-- The system tracks past prices and time of change to provide detailed insights into stock behavior.
+```
+Loreto_Stock_Market/
+├── src/
+│   └── WizardStockExchange/
+│       ├── Components/
+│       │   ├── Layout/         # Main layout
+│       │   ├── Pages/          # Page components
+│       │   └── Shared/         # Shared components
+│       ├── Models/             # Data models
+│       ├── Services/           # Business logic
+│       └── wwwroot/            # Static assets
+├── legacy/                     # Original VB.NET Windows Forms code
+└── WizardStockExchange.sln     # Solution file
+```
 
-### Table Display for Stock Overview:
-- Stock prices and average price changes are displayed in a sortable table, allowing users to organize by price shifts, profits, or losses.
-- Clear and straightforward presentation to ensure ease of use for all skill levels.
+## How to Play
 
-## Achievements:
+1. **Start with £10,000** - Your initial balance to begin trading
+2. **Browse the Market** - Click on any stock to view details and trade
+3. **Buy Low, Sell High** - The classic trading strategy
+4. **Build Your Score** - Your score increases based on profitable trades
+5. **Take Loans** - Once your score reaches 100, you can apply for bank loans
+6. **Use the Watchlist** - Track stocks you're interested in without buying
 
-- Created a versatile trading simulator suitable for both educational and professional use.
-- Implemented complex banking and stock-trading mechanics with realistic financial consequences.
-- Designed an intuitive GUI that enhances user experience while providing rich financial insights.
+## Technologies
 
+- **Blazor Server** - For interactive UI with real-time updates
+- **C# / .NET 7** - Modern, cross-platform runtime
+- **CSS3** - Custom dark theme with animations
 
-<img width="451" alt="image" src="https://github.com/user-attachments/assets/5d4438e4-0d52-4010-a0d8-14cf05b25cea">
-<img width="451" alt="image" src="https://github.com/user-attachments/assets/5a0b4b7b-4ee3-4a88-9b5e-82b4a9b3a6a0">
-<img width="211" alt="image" src="https://github.com/user-attachments/assets/d0e3a785-bbb5-485d-8688-408d079b7ba5">
+## Original Project
+
+This was originally a school project built with:
+- Visual Basic .NET
+- Windows Forms
+- Microsoft Excel Interop (for stock data)
+
+The new version replaces all Windows-specific dependencies with cross-platform alternatives.
+
+## License
+
+MIT License - Feel free to use and modify!
+
+---
+
+Made with ❤️ by Roland

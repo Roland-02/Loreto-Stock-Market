@@ -1,0 +1,100 @@
+@page "/history"
+@inject GameState GameState
+@inject TradingService TradingService
+@implements IDisposable
+
+<PageTitle>History - Wizard Stock Exchange</PageTitle>
+
+<div class="page-header">
+    <div class="header-content">
+        <h1>📋 Transaction History</h1>
+        <p class="subtitle">View your past trades and payments</p>
+    </div>
+    @if (GameState.Transactions.Count > 0)
+    {
+        <button class="btn btn-danger" @onclick="ShowClearConfirmation">Clear History</button>
+    }
+</div>
+
+@if (GameState.Transactions.Count == 0)
+{
+    <div class="empty-state">
+        <span class="empty-icon">📝</span>
+        <h3>No transactions yet</h3>
+        <p>Your trading history will appear here</p>
+        <a href="/" class="btn btn-primary">Start Trading</a>
+    </div>
+}
+else
+{
+    <div class="stock-table-container">
+        <table class="stock-table history-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th class="number">Amount (£)</th>
+                    <th class="number">Quantity</th>
+                    <th>Date</th>
+                    <th class="number">Balance After (£)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var trans in GameState.Transactions.OrderByDescending(t => t.Date))
+                {
+                    <tr>
+                        <td class="id">@trans.Id</td>
+                        <td class="company">@trans.StockName</td>
+                        <td class="number @(trans.Amount >= 0 ? "positive" : "negative")">
+                            @(trans.Amount >= 0 ? "+" : "")@trans.Amount.ToString("N2")
+                        </td>
+                        <td class="number">@trans.Quantity.ToString("N0")</td>
+                        <td class="date">@trans.Date.ToString("dd MMM yyyy HH:mm")</td>
+                        <td class="number">@trans.BalanceAfter.ToString("N2")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+@if (ShowConfirmation)
+{
+    <div class="modal-overlay" @onclick="() => ShowConfirmation = false">
+        <div class="confirm-modal" @onclick:stopPropagation="true">
+            <h3>⚠️ Clear History</h3>
+            <p>This will reset your transaction history and score. Are you sure?</p>
+            <div class="confirm-buttons">
+                <button class="btn btn-secondary" @onclick="() => ShowConfirmation = false">Cancel</button>
+                <button class="btn btn-danger" @onclick="ClearHistory">Clear</button>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private bool ShowConfirmation;
+
+    protected override void OnInitialized()
+    {
+        GameState.OnStateChanged += OnStateChanged;
+    }
+
+    private async void OnStateChanged()
+    {
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private void ShowClearConfirmation() => ShowConfirmation = true;
+
+    private void ClearHistory()
+    {
+        TradingService.ClearTransactionHistory();
+        ShowConfirmation = false;
+    }
+
+    public void Dispose()
+    {
+        GameState.OnStateChanged -= OnStateChanged;
+    }
+}

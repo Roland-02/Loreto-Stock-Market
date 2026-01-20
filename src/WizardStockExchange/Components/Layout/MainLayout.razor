@@ -1,0 +1,63 @@
+@inherits LayoutComponentBase
+@inject GameState GameState
+
+<div class="app-container">
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">📈</span>
+            <span class="logo-text">Wizard</span>
+        </div>
+        <div class="nav-links">
+            <NavLink href="/" Match="NavLinkMatch.All">
+                <span class="nav-icon">🏠</span>
+                <span>Market</span>
+            </NavLink>
+            <NavLink href="/portfolio">
+                <span class="nav-icon">💼</span>
+                <span>Portfolio</span>
+            </NavLink>
+            <NavLink href="/watchlist">
+                <span class="nav-icon">👁️</span>
+                <span>Watchlist</span>
+            </NavLink>
+            <NavLink href="/history">
+                <span class="nav-icon">📋</span>
+                <span>History</span>
+            </NavLink>
+            <NavLink href="/bank">
+                <span class="nav-icon">🏦</span>
+                <span>Bank</span>
+            </NavLink>
+        </div>
+        <div class="user-stats">
+            <div class="stat">
+                <span class="stat-label">Balance</span>
+                <span class="stat-value balance">£@GameState.CurrentUser.Balance.ToString("N2")</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Score</span>
+                <span class="stat-value score">@GameState.CurrentUser.Score.ToString("N0")</span>
+            </div>
+        </div>
+    </nav>
+    <main class="main-content">
+        @Body
+    </main>
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        GameState.OnStateChanged += OnStateChanged;
+    }
+
+    private async void OnStateChanged()
+    {
+        await InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        GameState.OnStateChanged -= OnStateChanged;
+    }
+}

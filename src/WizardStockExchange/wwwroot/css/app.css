@@ -1,0 +1,740 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #12121a;
+    --bg-card: rgba(20, 20, 30, 0.8);
+    --accent-green: #00d4aa;
+    --accent-blue: #00b4d8;
+    --accent-red: #ff6b6b;
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --text-muted: rgba(255, 255, 255, 0.4);
+    --border-color: rgba(255, 255, 255, 0.08);
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* Page Header */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.page-header .subtitle {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+}
+
+.header-info {
+    text-align: right;
+}
+
+.time-display .time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent-green);
+    display: block;
+}
+
+.time-display .date {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+/* Stock Table */
+.stock-table-container {
+    background: var(--bg-card);
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+}
+
+.stock-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.stock-table th, .stock-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+}
+
+.stock-table th {
+    background: rgba(0, 0, 0, 0.3);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.stock-table th.number, .stock-table td.number {
+    text-align: right;
+}
+
+.stock-table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.stock-table tbody tr:hover {
+    background: rgba(0, 212, 170, 0.05);
+}
+
+.stock-table tbody tr.selected {
+    background: rgba(0, 212, 170, 0.1);
+}
+
+.stock-table .ticker {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    color: var(--accent-blue);
+}
+
+.stock-table .company {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.stock-table .price {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+}
+
+.stock-table .volume {
+    color: var(--text-secondary);
+}
+
+.positive {
+    color: var(--accent-green);
+}
+
+.negative {
+    color: var(--accent-red);
+}
+
+/* Buttons */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9375rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-blue) 100%);
+    color: var(--bg-primary);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 212, 170, 0.3);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.btn-danger {
+    background: var(--accent-red);
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #ff5252;
+}
+
+.btn-buy {
+    background: var(--accent-green);
+    color: var(--bg-primary);
+    flex: 1;
+}
+
+.btn-buy:hover {
+    background: #00e6b8;
+}
+
+.btn-sell {
+    background: var(--accent-red);
+    color: white;
+    flex: 1;
+}
+
+.btn-sell:hover:not(:disabled) {
+    background: #ff5252;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-small {
+    padding: 0.375rem 0.625rem;
+    font-size: 0.8125rem;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-small:hover:not(:disabled) {
+    background: rgba(0, 212, 170, 0.2);
+}
+
+.btn-small:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.btn-remove {
+    background: rgba(255, 107, 107, 0.2);
+    color: var(--accent-red);
+}
+
+.btn-remove:hover {
+    background: rgba(255, 107, 107, 0.3);
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--bg-card);
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+}
+
+.empty-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 2rem;
+}
+
+.modal-content {
+    background: linear-gradient(145deg, #15151f 0%, #1a1a2e 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: var(--shadow);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--text-secondary);
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+    background: rgba(255, 107, 107, 0.2);
+    color: var(--accent-red);
+}
+
+.stock-header {
+    margin-bottom: 1.5rem;
+}
+
+.stock-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.stock-title .ticker {
+    background: rgba(0, 180, 216, 0.2);
+    color: var(--accent-blue);
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.stock-title h2 {
+    font-size: 1.25rem;
+}
+
+.stock-price-main {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.current-price {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.stock-price-main .change {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.stock-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.75rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.stat-card .stat-label {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.stat-card .stat-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.owned-info {
+    background: rgba(0, 212, 170, 0.1);
+    border: 1px solid rgba(0, 212, 170, 0.2);
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+}
+
+.owned-shares {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    color: var(--accent-green);
+}
+
+.owned-value {
+    color: var(--text-secondary);
+}
+
+.trade-section {
+    margin-bottom: 1.5rem;
+}
+
+.quantity-input {
+    margin-bottom: 1rem;
+}
+
+.quantity-input label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.quantity-input input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+}
+
+.quantity-input input:focus {
+    outline: none;
+    border-color: var(--accent-green);
+}
+
+.cost-preview {
+    display: block;
+    margin-top: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.trade-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.message {
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.message.success {
+    background: rgba(0, 212, 170, 0.15);
+    border: 1px solid rgba(0, 212, 170, 0.3);
+    color: var(--accent-green);
+}
+
+.message.error {
+    background: rgba(255, 107, 107, 0.15);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    color: var(--accent-red);
+}
+
+.mini-chart {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+.mini-chart h4 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.chart-container {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.price-chart {
+    width: 100%;
+    height: 100px;
+}
+
+/* Confirm Modal */
+.confirm-modal {
+    background: linear-gradient(145deg, #15151f 0%, #1a1a2e 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    max-width: 400px;
+}
+
+.confirm-modal h3 {
+    margin-bottom: 1rem;
+}
+
+.confirm-modal p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.confirm-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Portfolio Summary */
+.portfolio-summary {
+    display: flex;
+    gap: 2rem;
+}
+
+.summary-stat {
+    text-align: right;
+}
+
+.summary-stat .label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+}
+
+.summary-stat .value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.portfolio-actions {
+    margin-bottom: 1.5rem;
+}
+
+/* Bank Page */
+.warning-banner {
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.warning-banner.active-loan {
+    background: rgba(0, 180, 216, 0.1);
+    border-color: rgba(0, 180, 216, 0.3);
+}
+
+.warning-icon {
+    font-size: 2rem;
+}
+
+.warning-content h3 {
+    margin-bottom: 0.25rem;
+}
+
+.warning-content p {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+}
+
+.bank-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.bank-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.bank-card:hover {
+    border-color: rgba(0, 212, 170, 0.3);
+    transform: translateY(-2px);
+}
+
+.bank-card.selected {
+    border-color: var(--accent-green);
+    background: rgba(0, 212, 170, 0.05);
+}
+
+.bank-header {
+    margin-bottom: 1rem;
+}
+
+.bank-header h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.25rem;
+}
+
+.max-loan {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.bank-details .detail {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+}
+
+.bank-details .label {
+    color: var(--text-muted);
+}
+
+.loan-form {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2rem;
+}
+
+.loan-form h3 {
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: var(--accent-green);
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.loan-preview {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.preview-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    font-size: 0.9375rem;
+}
+
+.preview-item span:last-child {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+}
+
+.preview-item.highlight {
+    border-top: 1px solid var(--border-color);
+    padding-top: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.preview-item.highlight span:last-child {
+    color: var(--accent-green);
+    font-size: 1.125rem;
+}
+
+.btn-apply {
+    width: 100%;
+}
+
+/* History Table */
+.history-table .id {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+}
+
+.history-table .date {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Actions column */
+.actions {
+    text-align: center !important;
+}

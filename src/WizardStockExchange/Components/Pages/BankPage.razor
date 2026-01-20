@@ -1,0 +1,146 @@
+@page "/bank"
+@using BankModel = WizardStockExchange.Models.Bank
+@inject GameState GameState
+@inject LoanService LoanService
+@implements IDisposable
+
+<PageTitle>Bank - Wizard Stock Exchange</PageTitle>
+
+<div class="page-header">
+    <div class="header-content">
+        <h1>🏦 Bank Loans</h1>
+        <p class="subtitle">Borrow funds to expand your portfolio</p>
+    </div>
+</div>
+
+@if (GameState.CurrentUser.Score < 100)
+{
+    <div class="warning-banner">
+        <span class="warning-icon">🔒</span>
+        <div class="warning-content">
+            <h3>Minimum Score Required</h3>
+            <p>You need a score of at least 100 to apply for loans. Current score: @GameState.CurrentUser.Score</p>
+        </div>
+    </div>
+}
+else if (GameState.LoanActive)
+{
+    <div class="warning-banner active-loan">
+        <span class="warning-icon">💳</span>
+        <div class="warning-content">
+            <h3>Active Loan</h3>
+            <p>You have an active loan with @GameState.ActiveLender?.Name. Remaining: £@GameState.ActiveLender?.LoanAmount.ToString("N2")</p>
+        </div>
+    </div>
+}
+else
+{
+    <div class="bank-grid">
+        @foreach (var bank in Banks)
+        {
+            <div class="bank-card @(SelectedBank == bank ? "selected" : "")" @onclick="() => SelectBank(bank)">
+                <div class="bank-header">
+                    <h3>@bank.Name</h3>
+                    <span class="max-loan">Max: £@bank.MaxLoan.ToString("N0")</span>
+                </div>
+                <div class="bank-details">
+                    <div class="detail">
+                        <span class="label">Risk Level</span>
+                        <span class="value">@GetRiskLevel(bank)</span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    @if (SelectedBank != null)
+    {
+        <div class="loan-form">
+            <h3>Apply for Loan from @SelectedBank.Name</h3>
+            
+            <div class="form-group">
+                <label>Loan Amount (£1,000 - £@SelectedBank.MaxLoan.ToString("N0"))</label>
+                <input type="number" @bind="LoanAmount" min="1000" max="@SelectedBank.MaxLoan" />
+            </div>
+
+            <div class="form-group">
+                <label>Repayment Period</label>
+                <select @bind="RepaymentMonths">
+                    <option value="3">3 months</option>
+                    <option value="6">6 months</option>
+                    <option value="12">12 months</option>
+                    <option value="24">24 months</option>
+                </select>
+            </div>
+
+            <div class="loan-preview">
+                <div class="preview-item">
+                    <span>Interest Rate:</span>
+                    <span>@((InterestRate * 100).ToString("N2"))%</span>
+                </div>
+                <div class="preview-item">
+                    <span>Total to Repay:</span>
+                    <span>£@TotalRepay.ToString("N2")</span>
+                </div>
+                <div class="preview-item highlight">
+                    <span>Monthly Payment:</span>
+                    <span>£@MonthlyPayment.ToString("N2")</span>
+                </div>
+            </div>
+
+            <button class="btn btn-primary btn-apply" @onclick="ApplyForLoan">Apply for Loan</button>
+
+            @if (!string.IsNullOrEmpty(Message))
+            {
+                <div class="message @(IsError ? "error" : "success")">@Message</div>
+            }
+        </div>
+    }
+}
+
+@code {
+    private BankModel? SelectedBank;
+    private int LoanAmount = 5000;
+    private int RepaymentMonths = 12;
+    private string Message = "";
+    private bool IsError;
+
+    private BankModel[] Banks => new[] { GameState.Barclays, GameState.Natwest, GameState.Lloyds, GameState.HSBC };
+
+    private double InterestRate => SelectedBank?.CalculateInterest(LoanAmount, GameState.CurrentUser.Score) ?? 0;
+    private decimal TotalRepay => LoanAmount + (LoanAmount * (decimal)InterestRate);
+    private decimal MonthlyPayment => TotalRepay / RepaymentMonths;
+
+    protected override void OnInitialized()
+    {
+        GameState.OnStateChanged += OnStateChanged;
+    }
+
+    private async void OnStateChanged()
+    {
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private void SelectBank(BankModel bank) => SelectedBank = bank;
+
+    private string GetRiskLevel(BankModel bank)
+    {
+        if (bank == GameState.Barclays) return "⭐ Low";
+        if (bank == GameState.Natwest) return "⭐⭐ Medium";
+        if (bank == GameState.Lloyds) return "⭐⭐⭐ Medium-High";
+        return "⭐⭐⭐⭐ High";
+    }
+
+    private void ApplyForLoan()
+    {
+        if (SelectedBank == null) return;
+        var result = LoanService.ApplyForLoan(SelectedBank, LoanAmount, RepaymentMonths);
+        Message = result.Message;
+        IsError = !result.Success;
+    }
+
+    public void Dispose()
+    {
+        GameState.OnStateChanged -= OnStateChanged;
+    }
+}
