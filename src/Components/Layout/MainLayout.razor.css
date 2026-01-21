@@ -5,31 +5,31 @@
 }
 
 ::deep .sidebar {
-    width: 260px;
-    background: rgba(15, 15, 25, 0.95);
-    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    width: 240px;
+    background: rgba(10, 10, 18, 0.98);
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
     display: flex;
     flex-direction: column;
-    padding: 1.5rem;
-    backdrop-filter: blur(20px);
+    padding: 1.25rem;
 }
 
 ::deep .logo {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 1rem 0;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
 }
 
 ::deep .logo-icon {
-    font-size: 2rem;
+    width: 28px;
+    height: 28px;
+    color: #00d4aa;
 }
 
 ::deep .logo-text {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     background: linear-gradient(135deg, #00d4aa 0%, #00b4d8 100%);
     -webkit-background-clip: text;
@@ -37,64 +37,88 @@
     background-clip: text;
 }
 
+::deep .nav-section {
+    margin-bottom: 1.5rem;
+}
+
+::deep .nav-section-title {
+    display: block;
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.35);
+    padding: 0 0.75rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
 ::deep .nav-links {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    flex: 1;
+    gap: 0.25rem;
 }
 
 ::deep .nav-links a {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 0.875rem 1rem;
-    border-radius: 12px;
-    color: rgba(255, 255, 255, 0.7);
+    padding: 0.625rem 0.75rem;
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
+    font-size: 0.9375rem;
     font-weight: 500;
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
 }
 
 ::deep .nav-links a:hover {
-    background: rgba(0, 212, 170, 0.1);
-    color: #00d4aa;
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.9);
 }
 
 ::deep .nav-links a.active {
-    background: linear-gradient(135deg, rgba(0, 212, 170, 0.2) 0%, rgba(0, 180, 216, 0.2) 100%);
+    background: rgba(0, 212, 170, 0.12);
     color: #00d4aa;
-    border: 1px solid rgba(0, 212, 170, 0.3);
+}
+
+::deep .nav-links a.active .nav-icon {
+    color: #00d4aa;
 }
 
 ::deep .nav-icon {
-    font-size: 1.25rem;
+    width: 18px;
+    height: 18px;
+    stroke-width: 2;
+    flex-shrink: 0;
 }
 
 ::deep .user-stats {
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: auto;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.875rem;
 }
 
 ::deep .stat {
     display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+    justify-content: space-between;
+    align-items: center;
 }
 
 ::deep .stat-label {
     font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 500;
 }
 
 ::deep .stat-value {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 1.25rem;
+    font-size: 0.9375rem;
     font-weight: 600;
 }
 

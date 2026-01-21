@@ -26,6 +26,10 @@ html, body {
     line-height: 1.6;
 }
 
+.app-container {
+    padding: 1rem;
+}
+
 h1, h2, h3, h4 {
     font-weight: 600;
     line-height: 1.2;
@@ -737,4 +741,25 @@ h1, h2, h3, h4 {
 /* Actions column */
 .actions {
     text-align: center !important;
+}
+
+/* Blazor error UI - hidden by default */
+#blazor-error-ui {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: rgba(255, 107, 107, 0.95);
+    color: white;
+    text-align: center;
+    z-index: 9999;
+}
+
+#blazor-error-ui .reload,
+#blazor-error-ui .dismiss {
+    margin-left: 1rem;
+    color: white;
+    cursor: pointer;
 }
