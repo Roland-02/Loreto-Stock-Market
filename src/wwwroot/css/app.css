@@ -27,7 +27,102 @@ html, body {
 }
 
 .app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
     padding: 1rem;
+}
+
+/* Top Navbar */
+.top-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    padding: 0 2rem;
+    margin-bottom: 1rem;
+    background: #1a1a24;
+    border-bottom: 1px solid #333;
+}
+
+.nav-links,
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-links a,
+.nav-right a {
+    padding: 0.5rem 1rem;
+    color: #aaa;
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+}
+
+.nav-links a:hover,
+.nav-right a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-links a.active,
+.nav-right a.active {
+    color: #fff;
+    background: #00d4aa;
+}
+
+.nav-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-decoration: none;
+}
+
+.logo-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    background: linear-gradient(135deg, #00d4aa 0%, #00b4d8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-balance {
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 0.75rem;
+    background: rgba(0, 212, 170, 0.1);
+    border: 1px solid rgba(0, 212, 170, 0.25);
+    border-radius: 6px;
+    margin-left: 0.5rem;
+}
+
+.balance-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #00d4aa;
+}
+
+.sidebar .nav-icon,
+.sidebar .nav-links svg {
+    width: 16px !important;
+    height: 16px !important;
+    min-width: 16px;
+    min-height: 16px;
+    flex-shrink: 0;
 }
 
 h1, h2, h3, h4 {
@@ -40,13 +135,15 @@ h1, h2, h3, h4 {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--border-color);
 }
 
 .page-header h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
     background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-blue) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -58,21 +155,44 @@ h1, h2, h3, h4 {
     margin-top: 0.5rem;
 }
 
+.page-header.centered {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
 .header-info {
     text-align: right;
 }
 
+.time-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding: 0.5rem 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
 .time-display .time {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--accent-green);
-    display: block;
+}
+
+.time-display .separator {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.75rem;
 }
 
 .time-display .date {
     color: var(--text-secondary);
-    font-size: 0.875rem;
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
 /* Stock Table */
