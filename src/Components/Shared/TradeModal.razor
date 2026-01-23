@@ -62,6 +62,9 @@
             <div class="trade-buttons">
                 <button class="btn btn-buy" @onclick="Buy">Buy</button>
                 <button class="btn btn-sell" @onclick="Sell" disabled="@(Stock.OwnedShares == 0)">Sell</button>
+                <button class="btn-small btn-watch @(IsWatching ? "watching" : "")" @onclick="ToggleWatch">
+                    @(IsWatching ? "✓" : "+")
+                </button>
             </div>
         </div>
 
@@ -79,15 +82,36 @@
                         var prices = Stock.PriceHistory.TakeLast(20).ToList();
                         var min = prices.Min();
                         var max = prices.Max();
+                        var mid = (min + max) / 2;
                         var range = max - min;
                         if (range == 0) range = 1;
                     }
-                    <svg viewBox="0 0 400 100" class="price-chart">
+                    <svg viewBox="0 0 500 180" class="price-chart" preserveAspectRatio="none">
+                        <!-- Y-axis labels (price) -->
+                        <text x="48" y="25" class="axis-label axis-y" text-anchor="end">£@max.ToString("N0")</text>
+                        <text x="48" y="85" class="axis-label axis-y" text-anchor="end">£@mid.ToString("N0")</text>
+                        <text x="48" y="145" class="axis-label axis-y" text-anchor="end">£@min.ToString("N0")</text>
+                        
+                        <!-- Y-axis line -->
+                        <line x1="55" y1="10" x2="55" y2="150" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+                        
+                        <!-- X-axis line -->
+                        <line x1="55" y1="150" x2="495" y2="150" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+                        
+                        <!-- Grid lines -->
+                        <line x1="55" y1="80" x2="495" y2="80" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4"/>
+                        
+                        <!-- Price line -->
                         <polyline
                             fill="none"
                             stroke="@(Stock.PriceChange >= 0 ? "#00d4aa" : "#ff6b6b")"
-                            stroke-width="2"
+                            stroke-width="2.5"
                             points="@GetChartPoints(prices, min, range)" />
+                        
+                        <!-- X-axis labels (time) -->
+                        <text x="55" y="172" class="axis-label axis-x" text-anchor="start">-@(prices.Count)m</text>
+                        <text x="275" y="172" class="axis-label axis-x" text-anchor="middle">-@(prices.Count/2)m</text>
+                        <text x="495" y="172" class="axis-label axis-x" text-anchor="end">Now</text>
                     </svg>
                 </div>
             </div>
@@ -102,6 +126,20 @@
     private int Quantity = 1;
     private string Message = "";
     private bool IsError;
+
+    private bool IsWatching => GameState.WatchList.Contains(Stock);
+
+    private void ToggleWatch()
+    {
+        if (IsWatching)
+        {
+            TradingService.RemoveFromWatchList(Stock);
+        }
+        else
+        {
+            TradingService.AddToWatchList(Stock);
+        }
+    }
 
     private void Buy()
     {
@@ -128,11 +166,13 @@
     private string GetChartPoints(List<decimal> prices, decimal min, decimal range)
     {
         var points = new List<string>();
-        var step = 400.0 / (prices.Count - 1);
+        var chartWidth = 440.0;
+        var chartHeight = 130.0;
+        var step = chartWidth / (prices.Count - 1);
         for (int i = 0; i < prices.Count; i++)
         {
-            var x = i * step;
-            var y = 90 - (double)((prices[i] - min) / range) * 80;
+            var x = 55 + (i * step);
+            var y = 145 - (double)((prices[i] - min) / range) * chartHeight;
             points.Add($"{x:F1},{y:F1}");
         }
         return string.Join(" ", points);
