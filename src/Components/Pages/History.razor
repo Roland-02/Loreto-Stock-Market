@@ -7,7 +7,7 @@
 
 <div class="page-header">
     <div class="header-content">
-        <h1>📋 Transaction History</h1>
+        <h1>Transaction History</h1>
         <p class="subtitle">View your past trades and payments</p>
     </div>
     @if (GameState.Transactions.Count > 0)
@@ -19,7 +19,6 @@
 @if (GameState.Transactions.Count == 0)
 {
     <div class="empty-state">
-        <span class="empty-icon">📝</span>
         <h3>No transactions yet</h3>
         <p>Your trading history will appear here</p>
         <a href="/" class="btn btn-primary">Start Trading</a>
@@ -62,7 +61,7 @@ else
 {
     <div class="modal-overlay" @onclick="() => ShowConfirmation = false">
         <div class="confirm-modal" @onclick:stopPropagation="true">
-            <h3>⚠️ Clear History</h3>
+            <h3>Clear History</h3>
             <p>This will reset your transaction history and score. Are you sure?</p>
             <div class="confirm-buttons">
                 <button class="btn btn-secondary" @onclick="() => ShowConfirmation = false">Cancel</button>

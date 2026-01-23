@@ -55,15 +55,15 @@ html, body {
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 .nav-links a,
 .nav-right a {
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.25rem;
     color: #aaa;
     text-decoration: none;
-    font-size: 0.9375rem;
+    font-size: 1rem;
     font-weight: 500;
     border-radius: 6px;
     transition: all 0.15s ease;
@@ -99,6 +99,30 @@ html, body {
     background-clip: text;
 }
 
+.nav-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+}
+
+.nav-stat .stat-label {
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.nav-stat .stat-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #00b4d8;
+}
+
 .nav-balance {
     display: flex;
     align-items: center;
@@ -106,7 +130,6 @@ html, body {
     background: rgba(0, 212, 170, 0.1);
     border: 1px solid rgba(0, 212, 170, 0.25);
     border-radius: 6px;
-    margin-left: 0.5rem;
 }
 
 .balance-value {
@@ -363,6 +386,21 @@ h1, h2, h3, h4 {
 
 .btn-remove:hover {
     background: rgba(255, 107, 107, 0.3);
+}
+
+.btn-watch {
+    min-width: 2rem;
+    font-weight: 600;
+}
+
+.btn-watch.watching {
+    background: rgba(0, 212, 170, 0.2);
+    color: var(--accent-green);
+}
+
+.btn-watch.watching:hover {
+    background: rgba(255, 107, 107, 0.2);
+    color: var(--accent-red);
 }
 
 /* Empty State */

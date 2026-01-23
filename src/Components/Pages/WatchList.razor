@@ -7,7 +7,7 @@
 
 <div class="page-header">
     <div class="header-content">
-        <h1>👁️ Watchlist</h1>
+        <h1>Watchlist</h1>
         <p class="subtitle">Track stocks you're interested in</p>
     </div>
     @if (GameState.WatchList.Count > 0)
@@ -19,7 +19,6 @@
 @if (GameState.WatchList.Count == 0)
 {
     <div class="empty-state">
-        <span class="empty-icon">🔍</span>
         <h3>Watchlist is empty</h3>
         <p>Add stocks from the Market to track their performance</p>
         <a href="/" class="btn btn-primary">Browse Market</a>
@@ -36,7 +35,7 @@ else
                     <th class="number">Price (£)</th>
                     <th class="number">Change</th>
                     <th class="number">Pred. Profit</th>
-                    <th>Actions</th>
+                    <th class="actions">Watch</th>
                 </tr>
             </thead>
             <tbody>
@@ -53,8 +52,8 @@ else
                             @stock.PredictedProfitPercent.ToString("N2")%
                         </td>
                         <td class="actions">
-                            <button class="btn-small btn-remove" @onclick="() => Remove(stock)" @onclick:stopPropagation="true">
-                                ✕
+                            <button class="btn-small btn-watch watching" @onclick="() => Remove(stock)" @onclick:stopPropagation="true">
+                                ✓
                             </button>
                         </td>
                     </tr>

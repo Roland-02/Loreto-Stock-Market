@@ -8,7 +8,7 @@
 
 <div class="page-header">
     <div class="header-content">
-        <h1>🏦 Bank Loans</h1>
+        <h1>Bank Loans</h1>
         <p class="subtitle">Borrow funds to expand your portfolio</p>
     </div>
 </div>
@@ -16,7 +16,6 @@
 @if (GameState.CurrentUser.Score < 100)
 {
     <div class="warning-banner">
-        <span class="warning-icon">🔒</span>
         <div class="warning-content">
             <h3>Minimum Score Required</h3>
             <p>You need a score of at least 100 to apply for loans. Current score: @GameState.CurrentUser.Score</p>
@@ -26,7 +25,6 @@
 else if (GameState.LoanActive)
 {
     <div class="warning-banner active-loan">
-        <span class="warning-icon">💳</span>
         <div class="warning-content">
             <h3>Active Loan</h3>
             <p>You have an active loan with @GameState.ActiveLender?.Name. Remaining: £@GameState.ActiveLender?.LoanAmount.ToString("N2")</p>
@@ -125,10 +123,10 @@ else
 
     private string GetRiskLevel(BankModel bank)
     {
-        if (bank == GameState.Barclays) return "⭐ Low";
-        if (bank == GameState.Natwest) return "⭐⭐ Medium";
-        if (bank == GameState.Lloyds) return "⭐⭐⭐ Medium-High";
-        return "⭐⭐⭐⭐ High";
+        if (bank == GameState.Barclays) return "Low";
+        if (bank == GameState.Natwest) return "Medium";
+        if (bank == GameState.Lloyds) return "Medium-High";
+        return "High";
     }
 
     private void ApplyForLoan()

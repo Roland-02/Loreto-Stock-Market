@@ -7,7 +7,7 @@
 
 <div class="page-header">
     <div class="header-content">
-        <h1>💼 Your Portfolio</h1>
+        <h1>Your Portfolio</h1>
         <p class="subtitle">Manage your stock investments</p>
     </div>
     <div class="portfolio-summary">
@@ -27,7 +27,6 @@
 @if (GameState.OwnedStocks.Count == 0)
 {
     <div class="empty-state">
-        <span class="empty-icon">📭</span>
         <h3>No investments yet</h3>
         <p>Visit the Market to buy your first stocks!</p>
         <a href="/" class="btn btn-primary">Go to Market</a>
@@ -85,7 +84,7 @@ else
 {
     <div class="modal-overlay" @onclick="() => ShowConfirmation = false">
         <div class="confirm-modal" @onclick:stopPropagation="true">
-            <h3>⚠️ Confirm Sale</h3>
+            <h3>Confirm Sale</h3>
             <p>Are you sure you want to sell all stocks for £@TotalValue.ToString("N2")?</p>
             <div class="confirm-buttons">
                 <button class="btn btn-secondary" @onclick="() => ShowConfirmation = false">Cancel</button>

@@ -24,7 +24,7 @@
                 <th class="number">Change (£)</th>
                 <th class="number">Change (%)</th>
                 <th class="number">Volume</th>
-                <th>Actions</th>
+                <th class="actions">Watch</th>
             </tr>
         </thead>
         <tbody>
@@ -42,9 +42,9 @@
                     </td>
                     <td class="number volume">@stock.Volume.ToString("N0")</td>
                     <td class="actions">
-                        <button class="btn-small btn-watch" @onclick="() => WatchStock(stock)" @onclick:stopPropagation="true"
-                                disabled="@GameState.WatchList.Contains(stock)">
-                            @(GameState.WatchList.Contains(stock) ? "👁️" : "➕")
+                        <button class="btn-small btn-watch @(GameState.WatchList.Contains(stock) ? "watching" : "")" 
+                                @onclick="() => ToggleWatchStock(stock)" @onclick:stopPropagation="true">
+                            @(GameState.WatchList.Contains(stock) ? "✓" : "+")
                         </button>
                     </td>
                 </tr>
@@ -76,9 +76,16 @@
     private void SelectStock(Stock stock) => SelectedStock = stock;
     private void CloseModal() => SelectedStock = null;
 
-    private void WatchStock(Stock stock)
+    private void ToggleWatchStock(Stock stock)
     {
-        TradingService.AddToWatchList(stock);
+        if (GameState.WatchList.Contains(stock))
+        {
+            TradingService.RemoveFromWatchList(stock);
+        }
+        else
+        {
+            TradingService.AddToWatchList(stock);
+        }
     }
 
     public void Dispose()
