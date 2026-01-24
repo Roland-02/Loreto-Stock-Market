@@ -15,6 +15,7 @@
             <NavLink href="/watchlist">Watchlist</NavLink>
             <NavLink href="/history">History</NavLink>
             <NavLink href="/bank">Bank</NavLink>
+            <NavLink href="/about" class="nav-info-btn" title="About"><span class="info-icon">i</span></NavLink>
         </div>
         
         <a href="/" class="nav-logo">
@@ -44,6 +45,7 @@
             <NavLink href="/watchlist" @onclick="CloseMenu">Watchlist</NavLink>
             <NavLink href="/history" @onclick="CloseMenu">History</NavLink>
             <NavLink href="/bank" @onclick="CloseMenu">Bank</NavLink>
+            <NavLink href="/about" @onclick="CloseMenu">About</NavLink>
         </nav>
         <div class="side-menu-footer">
             <div class="menu-stat">
@@ -60,6 +62,12 @@
     <main class="main-content">
         @Body
     </main>
+    
+    <footer class="site-footer">
+        <p>
+            Developed by <a href="https://github.com/Roland-02" target="_blank" rel="noopener noreferrer">Roland Olajide</a>
+        </p>
+    </footer>
 </div>
 
 @code {

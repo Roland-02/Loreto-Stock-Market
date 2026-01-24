@@ -1,0 +1,124 @@
+@page "/about"
+
+<PageTitle>About - Wizard Stock Market</PageTitle>
+
+<div class="page-header centered">
+    <h1>About WSM</h1>
+</div>
+
+<div class="about-container">
+    <section class="about-section">
+        <h2>What is Wizard Stock Market?</h2>
+        <p>
+            Wizard Stock Market (WSM) is a virtual stock trading simulator that allows you to buy and sell 
+            shares of fictional companies using virtual currency. It's designed as an educational tool 
+            to help you understand the basics of stock trading, portfolio management, and financial 
+            decision-making — all without risking real money.
+        </p>
+        <p>
+            Whether you're a student learning about finance, or simply curious about how the stock market 
+            works, WSM provides a safe and engaging environment to practice trading strategies.
+        </p>
+    </section>
+
+    <section class="about-section">
+        <h2>How It Works</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>Live Market</h3>
+                <p>Stock prices update in real-time with simulated market fluctuations. Watch prices rise and fall as you decide when to buy or sell.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Portfolio Management</h3>
+                <p>Build your portfolio by purchasing shares. Track your holdings, monitor performance, and sell when the time is right.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Watchlist</h3>
+                <p>Keep an eye on stocks you're interested in. Add them to your watchlist for quick access without committing to a purchase.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Bank Loans</h3>
+                <p>Need extra capital? Apply for loans from virtual banks. Each bank has different rates and requirements based on your score.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <h2>Scoring System</h2>
+        <div class="scoring-info">
+            <div class="score-explanation">
+                <p>Your score reflects your trading success and is calculated based on your total profit:</p>
+                <div class="score-formula">
+                    <span class="formula-label">Score</span>
+                    <span class="formula-equals">=</span>
+                    <span class="formula-value">1 point per £10 profit</span>
+                </div>
+                <ul class="score-rules">
+                    <li>Score starts at <strong>0</strong> for new traders</li>
+                    <li>Score increases when you sell stocks at a profit</li>
+                    <li>Score decreases when you sell at a loss</li>
+                    <li>Minimum score is <strong>0</strong> (cannot go negative)</li>
+                    <li>A minimum score of <strong>25</strong> is required to apply for bank loans</li>
+                </ul>
+            </div>
+            <div class="score-tips">
+                <h4>Tips for Success</h4>
+                <ul>
+                    <li>Buy low, sell high — watch price trends before committing</li>
+                    <li>Diversify your portfolio across multiple stocks</li>
+                    <li>Use the watchlist to track opportunities</li>
+                    <li>Build your score before taking out loans</li>
+                    <li>Review your transaction history to learn from past trades</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <h2>Technical Details</h2>
+        <div class="tech-grid">
+            <div class="tech-item">
+                <span class="tech-label">Framework</span>
+                <span class="tech-value">ASP.NET Blazor Server</span>
+            </div>
+            <div class="tech-item">
+                <span class="tech-label">Runtime</span>
+                <span class="tech-value">.NET 7.0</span>
+            </div>
+            <div class="tech-item">
+                <span class="tech-label">UI</span>
+                <span class="tech-value">Razor Components</span>
+            </div>
+            <div class="tech-item">
+                <span class="tech-label">State</span>
+                <span class="tech-value">Scoped Services</span>
+            </div>
+            <div class="tech-item">
+                <span class="tech-label">Styling</span>
+                <span class="tech-value">Custom CSS</span>
+            </div>
+            <div class="tech-item">
+                <span class="tech-label">Charts</span>
+                <span class="tech-value">SVG Rendering</span>
+            </div>
+        </div>
+        <p class="tech-note">
+            Stock prices are simulated using randomised algorithms that create realistic market behaviour. 
+            The application uses real-time updates via SignalR for seamless price changes.
+        </p>
+    </section>
+
+    <section class="about-section github-section">
+        <h2>Source Code</h2>
+        <p>This project is open source. View the code, report issues, or contribute on GitHub:</p>
+        <a href="https://github.com/Roland-02/Wizard_Stock_Market" target="_blank" rel="noopener noreferrer" class="github-link">
+            <svg viewBox="0 0 24 24" class="github-icon">
+                <path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            <span>Roland-02/Wizard_Stock_Market</span>
+        </a>
+    </section>
+</div>
+
+@code {
+}
