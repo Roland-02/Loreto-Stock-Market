@@ -3,6 +3,12 @@
 
 <div class="app-container">
     <nav class="top-navbar">
+        <button type="button" class="hamburger-btn" @onclick="ToggleMenu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        
         <div class="nav-links">
             <NavLink href="/" Match="NavLinkMatch.All">Market</NavLink>
             <NavLink href="/portfolio">Portfolio</NavLink>
@@ -26,12 +32,39 @@
         </div>
     </nav>
     
+    <div class="side-menu-overlay @(MenuOpen ? "open" : "")" @onclick="CloseMenu"></div>
+    <aside class="side-menu @(MenuOpen ? "open" : "")">
+        <div class="side-menu-header">
+            <span class="side-menu-title">Menu</span>
+            <button type="button" class="close-btn" @onclick="CloseMenu">✕</button>
+        </div>
+        <nav class="side-menu-nav">
+            <NavLink href="/" Match="NavLinkMatch.All" @onclick="CloseMenu">Market</NavLink>
+            <NavLink href="/portfolio" @onclick="CloseMenu">Portfolio</NavLink>
+            <NavLink href="/watchlist" @onclick="CloseMenu">Watchlist</NavLink>
+            <NavLink href="/history" @onclick="CloseMenu">History</NavLink>
+            <NavLink href="/bank" @onclick="CloseMenu">Bank</NavLink>
+        </nav>
+        <div class="side-menu-footer">
+            <div class="menu-stat">
+                <span class="menu-stat-label">Score</span>
+                <span class="menu-stat-value">@GameState.CurrentUser.Score</span>
+            </div>
+            <div class="menu-stat">
+                <span class="menu-stat-label">Balance</span>
+                <span class="menu-stat-value">£@GameState.CurrentUser.Balance.ToString("N2")</span>
+            </div>
+        </div>
+    </aside>
+    
     <main class="main-content">
         @Body
     </main>
 </div>
 
 @code {
+    private bool MenuOpen = false;
+    
     protected override void OnInitialized()
     {
         GameState.OnStateChanged += OnStateChanged;
@@ -40,6 +73,16 @@
     private async void OnStateChanged()
     {
         await InvokeAsync(StateHasChanged);
+    }
+    
+    private void ToggleMenu()
+    {
+        MenuOpen = !MenuOpen;
+    }
+    
+    private void CloseMenu()
+    {
+        MenuOpen = false;
     }
 
     public void Dispose()

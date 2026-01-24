@@ -48,6 +48,7 @@ html, body {
     padding: 0 2rem;
     margin-bottom: 1rem;
     background: #1a1a24;
+    isolation: isolate;
     border-bottom: 1px solid #333;
 }
 
@@ -86,6 +87,7 @@ html, body {
     left: 50%;
     transform: translateX(-50%);
     text-decoration: none;
+    z-index: 150;
 }
 
 .logo-text {
@@ -955,4 +957,227 @@ h1, h2, h3, h4 {
     margin-left: 1rem;
     color: white;
     cursor: pointer;
+}
+
+/* Hamburger Button - Hidden by default */
+.hamburger-btn {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0;
+    z-index: 150;
+    position: relative;
+    transition: all 0.15s ease;
+}
+
+.hamburger-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.hamburger-btn:active {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.hamburger-line {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+/* Side Menu */
+.side-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 200;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.side-menu-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.side-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100vh;
+    background: #1a1a24;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 300;
+    transition: left 0.3s ease;
+    flex-direction: column;
+}
+
+.side-menu.open {
+    left: 0;
+}
+
+.side-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.side-menu-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    transition: color 0.15s ease;
+}
+
+.close-btn:hover {
+    color: #fff;
+}
+
+.side-menu-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+
+.side-menu-nav a {
+    padding: 1rem 1.5rem;
+    color: #aaa;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.15s ease;
+    border-left: 3px solid transparent;
+}
+
+.side-menu-nav a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.side-menu-nav a.active {
+    color: #00d4aa;
+    background: rgba(0, 212, 170, 0.1);
+    border-left-color: #00d4aa;
+}
+
+.side-menu-footer {
+    margin-top: auto;
+    padding: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.menu-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.menu-stat-label {
+    font-size: 0.875rem;
+    color: #888;
+}
+
+.menu-stat-value {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #00d4aa;
+}
+
+/* Responsive - Below 1181px */
+@media (max-width: 1181px) {
+    .hamburger-btn {
+        display: flex;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .side-menu-overlay {
+        display: block;
+    }
+    
+    .side-menu {
+        display: flex;
+    }
+    
+    .nav-logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* Responsive - Tablet */
+@media (max-width: 900px) {
+    .logo-text {
+        font-size: 2rem;
+    }
+    
+    .nav-stat,
+    .nav-balance {
+        padding: 0.4rem 0.6rem;
+    }
+    
+    .balance-value {
+        font-size: 1.1rem;
+    }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 700px) {
+    /* .top-navbar {
+        padding: 0 1rem;
+        height: 56px;
+    } */
+    
+    .nav-logo {
+        display: block;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    /* .logo-text {
+        font-size: 1.5rem;
+    } */
+    
+    .nav-right {
+        display: none;
+    }
 }
