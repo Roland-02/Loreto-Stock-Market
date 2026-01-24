@@ -33,6 +33,7 @@ public class TradingService
         }
 
         stock.UpdateOwnedShares(quantity);
+        stock.TotalCostBasis += cost;
 
         _gameState.Transactions.Add(new Transaction(
             stock.Name, -cost, quantity, _gameState.CurrentUser.Balance, isNewInvestment));
@@ -50,63 +51,56 @@ public class TradingService
             return (false, "You don't own that many shares");
 
         var proceeds = stock.CurrentPrice * quantity;
+        var costBasisForSold = stock.AverageCostPerShare * quantity;
+        var profit = proceeds - costBasisForSold;
+        
         _gameState.CurrentUser.AdjustBalance(proceeds);
+        _gameState.CurrentUser.AdjustProfit(profit);
+        
         stock.UpdateVolume(quantity);
         stock.UpdateOwnedShares(-quantity);
+        stock.TotalCostBasis -= costBasisForSold;
 
         _gameState.Transactions.Add(new Transaction(
             stock.Name, proceeds, quantity, _gameState.CurrentUser.Balance, false));
 
         if (stock.OwnedShares == 0)
         {
-            var profit = CalculateProfit(stock);
-            _gameState.CurrentUser.AdjustProfit(profit);
+            stock.TotalCostBasis = 0;
             _gameState.OwnedStocks.Remove(stock);
         }
 
         _gameState.NotifyStateChanged();
-        return (true, $"Sold {quantity} shares of {stock.Name} for £{proceeds:N2}");
+        return (true, $"Sold {quantity} shares for £{proceeds:N2} (Profit: £{profit:N2})");
     }
 
     public (bool Success, string Message) SellAllStocks()
     {
         var totalProceeds = 0m;
+        var totalProfit = 0m;
+        
         foreach (var stock in _gameState.OwnedStocks.ToList())
         {
             var proceeds = stock.CurrentPrice * stock.OwnedShares;
+            var profit = proceeds - stock.TotalCostBasis;
+            
             totalProceeds += proceeds;
+            totalProfit += profit;
 
             _gameState.Transactions.Add(new Transaction(
-                stock.Name, proceeds, stock.OwnedShares, _gameState.CurrentUser.Balance + proceeds, false));
-
-            var profit = CalculateProfit(stock);
-            _gameState.CurrentUser.AdjustProfit(profit);
+                stock.Name, proceeds, stock.OwnedShares, _gameState.CurrentUser.Balance + totalProceeds, false));
 
             stock.UpdateVolume(stock.OwnedShares);
             stock.UpdateOwnedShares(-stock.OwnedShares);
+            stock.TotalCostBasis = 0;
         }
 
         _gameState.CurrentUser.AdjustBalance(totalProceeds);
+        _gameState.CurrentUser.AdjustProfit(totalProfit);
         _gameState.OwnedStocks.Clear();
         _gameState.NotifyStateChanged();
 
-        return (true, $"Sold all stocks for £{totalProceeds:N2}");
-    }
-
-    private decimal CalculateProfit(Stock stock)
-    {
-        var buyTotal = 0m;
-        var sellTotal = 0m;
-
-        foreach (var t in _gameState.Transactions.Where(t => t.StockName == stock.Name))
-        {
-            if (t.Amount < 0)
-                buyTotal += -t.Amount;
-            else
-                sellTotal += t.Amount;
-        }
-
-        return sellTotal - buyTotal;
+        return (true, $"Sold all stocks for £{totalProceeds:N2} (Profit: £{totalProfit:N2})");
     }
 
     public void AddToWatchList(Stock stock)

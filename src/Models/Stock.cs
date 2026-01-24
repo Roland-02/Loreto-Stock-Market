@@ -9,6 +9,7 @@ public class Stock
     public List<decimal> PriceHistory { get; private set; } = new();
     public List<DateTime> TimeHistory { get; private set; } = new();
     public long OwnedShares { get; set; }
+    public decimal TotalCostBasis { get; set; }
 
     public Stock() { }
 
@@ -21,7 +22,12 @@ public class Stock
         PriceHistory.Add(initialPrice);
         TimeHistory.Add(DateTime.Now);
         OwnedShares = 0;
+        TotalCostBasis = 0;
     }
+
+    public decimal AverageCostPerShare => OwnedShares > 0 ? TotalCostBasis / OwnedShares : 0;
+    
+    public decimal UnrealizedProfit => OwnedShares > 0 ? (CurrentPrice * OwnedShares) - TotalCostBasis : 0;
 
     public decimal CurrentPrice => PriceHistory.Count > 0 ? PriceHistory[^1] : 0;
 

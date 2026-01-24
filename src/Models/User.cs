@@ -4,6 +4,7 @@ public class User
 {
     private decimal _balance;
     private decimal _totalProfit;
+    private const decimal PointsPerPound = 0.1m;
 
     public User(decimal initialBalance = 10000m)
     {
@@ -23,8 +24,8 @@ public class User
     {
         get
         {
-            if (_totalProfit <= 0) return 0;
-            return (int)(75 * Math.Log10((double)_totalProfit + 1));
+            // 1 point per £10 profit, starts at 0
+            return (int)Math.Round(_totalProfit * PointsPerPound);
         }
     }
 

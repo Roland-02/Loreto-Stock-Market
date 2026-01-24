@@ -19,8 +19,8 @@ public class LoanService
         if (_gameState.LoanActive)
             return (false, "You already have an active loan");
 
-        if (_gameState.CurrentUser.Score < 100)
-            return (false, "Your score must be at least 100 to apply for a loan");
+        if (_gameState.CurrentUser.Score < 25)
+            return (false, "Your score must be at least 25 to apply for a loan");
 
         if (amount < 1000 || amount > bank.MaxLoan)
             return (false, $"Loan amount must be between £1,000 and £{bank.MaxLoan:N0}");
