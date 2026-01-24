@@ -220,6 +220,27 @@ h1, h2, h3, h4 {
     font-weight: 500;
 }
 
+.header-datetime {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: 0.75rem;
+}
+
+.header-datetime .date {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.header-datetime .time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--accent-green);
+}
+
 /* Stock Table */
 .stock-table-container {
     background: var(--bg-card);
