@@ -56,8 +56,6 @@ A stock exchange simulator that lets you practice trading with virtual money. Or
 
 
 **Bank**
-<img width="2880" height="1554" alt="Screenshot 2026-01-25 at 12 26 39" src="https://github.com/user-attachments/assets/fde5e494-3e22-4b68-b70a-6cece9967a34" />
-
 <img width="2880" height="1552" alt="Screenshot 2026-01-25 at 13 21 32" src="https://github.com/user-attachments/assets/9e28e84b-21d1-435e-887a-2f5c89d284cd" />
 
 
