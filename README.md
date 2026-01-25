@@ -38,42 +38,32 @@ A stock exchange simulator that lets you practice trading with virtual money. Or
 
    Navigate to `http://localhost:5000`
 
-## Screenshots
+**Market**
+<img width="2880" height="1558" alt="Screenshot 2026-01-25 at 12 00 03" src="https://github.com/user-attachments/assets/62c294bb-1712-4ed1-bfd4-e5dc808a7289" />
+<img width="2880" height="1558" alt="Screenshot 2026-01-25 at 12 00 41" src="https://github.com/user-attachments/assets/204c29da-b458-4030-9d73-75045da1f26b" />
 
-Add your screenshots to `docs/screenshots/` using these filenames so they appear below:
-
-| Page | Filename |
-|------|----------|
-| Market (dashboard) | `market.png` |
-| Portfolio | `portfolio.png` |
-| Watchlist | `watchlist.png` |
-| History | `history.png` |
-| Bank | `bank.png` |
-| About | `about.png` |
-
-**Market (dashboard)**
-
-![Market](docs/screenshots/market.png)
 
 **Portfolio**
+<img width="2880" height="1800" alt="Screenshot 2026-01-25 at 12 28 29" src="https://github.com/user-attachments/assets/b5bd3d0d-c1a1-4b82-b486-69daf0b03455" />
 
-![Portfolio](docs/screenshots/portfolio.png)
 
 **Watchlist**
+<img width="2880" height="1558" alt="Screenshot 2026-01-25 at 12 01 32" src="https://github.com/user-attachments/assets/af6709a7-c0f8-4a0d-a771-dd239f14e5a2" />
 
-![Watchlist](docs/screenshots/watchlist.png)
 
 **History**
+<img width="2880" height="1556" alt="Screenshot 2026-01-25 at 12 18 48" src="https://github.com/user-attachments/assets/bca1e205-0253-4f72-83a5-a1b1b056fdff" />
 
-![History](docs/screenshots/history.png)
 
 **Bank**
+<img width="2880" height="1554" alt="Screenshot 2026-01-25 at 12 26 39" src="https://github.com/user-attachments/assets/fde5e494-3e22-4b68-b70a-6cece9967a34" />
 
-![Bank](docs/screenshots/bank.png)
 
 **About**
+<img width="2880" height="1552" alt="Screenshot 2026-01-25 at 12 55 17" src="https://github.com/user-attachments/assets/6d73fe89-f511-4e49-b67e-2265228696c6" />
 
-![About](docs/screenshots/about.png)
+
+
 
 ## Project Structure
 
@@ -105,20 +95,5 @@ Wizard_Stock_Market/
 - **Blazor Server** - Interactive UI with real-time updates
 - **C# / .NET 7** - Cross-platform runtime
 - **CSS3** - Custom dark theme with animations
-
-## Original Project
-
-This was originally a school project built with:
-- Visual Basic .NET
-- Windows Forms
-- Microsoft Excel Interop (for stock data)
-
-The new version replaces all Windows-specific dependencies with cross-platform alternatives.
-
-## License
-
-MIT License - Feel free to use and modify.
-
----
 
 By [Roland Olajide](https://github.com/Roland-02)
