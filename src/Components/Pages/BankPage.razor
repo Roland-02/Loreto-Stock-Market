@@ -73,8 +73,12 @@ else
 
             <div class="loan-preview">
                 <div class="preview-item">
-                    <span>Interest Rate:</span>
-                    <span>@((InterestRate * 100).ToString("N2"))%</span>
+                    <span>APR (annual):</span>
+                    <span>@(EffectiveAprPercent.ToString("N2"))%</span>
+                </div>
+                <div class="preview-item">
+                    <span>Total Interest:</span>
+                    <span>£@TotalInterest.ToString("N2")</span>
                 </div>
                 <div class="preview-item">
                     <span>Total to Repay:</span>
@@ -105,9 +109,11 @@ else
 
     private BankModel[] Banks => new[] { GameState.Barclays, GameState.Natwest, GameState.Lloyds, GameState.HSBC };
 
-    private double InterestRate => SelectedBank?.CalculateInterest(LoanAmount, GameState.CurrentUser.Score) ?? 0;
-    private decimal TotalRepay => LoanAmount + (LoanAmount * (decimal)InterestRate);
-    private decimal MonthlyPayment => TotalRepay / RepaymentMonths;
+    private decimal EffectiveApr => SelectedBank?.CalculateEffectiveApr(GameState.CurrentUser.Score) ?? 0m;
+    private decimal EffectiveAprPercent => EffectiveApr * 100m;
+    private decimal TotalRepay => SelectedBank != null ? SelectedBank.GetTotalRepayable(LoanAmount, RepaymentMonths, EffectiveApr) : 0m;
+    private decimal TotalInterest => TotalRepay - LoanAmount;
+    private decimal MonthlyPayment => SelectedBank != null ? SelectedBank.CalculateMonthlyPayment(LoanAmount, RepaymentMonths, EffectiveApr) : 0m;
 
     protected override void OnInitialized()
     {

@@ -25,12 +25,12 @@ public class LoanService
         if (amount < 1000 || amount > bank.MaxLoan)
             return (false, $"Loan amount must be between £1,000 and £{bank.MaxLoan:N0}");
 
-        var interest = bank.CalculateInterest(amount, _gameState.CurrentUser.Score);
-        var totalRepay = amount + (amount * (decimal)interest);
-        var monthlyPayment = totalRepay / months;
+        var apr = bank.CalculateEffectiveApr(_gameState.CurrentUser.Score);
+        var totalRepay = bank.GetTotalRepayable(amount, months, apr);
+        var monthlyPayment = bank.CalculateMonthlyPayment(amount, months, apr);
 
         if (!bank.EvaluateLoanApplication(_gameState.CurrentUser.Score, amount, monthlyPayment, _gameState.CurrentUser.Balance))
-            return (false, "Loan application rejected - credit insufficient or amount too large");
+            return (false, "Loan application rejected. Reduce the amount or ensure monthly payment is affordable (under 35% of balance).");
 
         bank.LoanAmount = totalRepay;
         bank.MonthlyPayment = monthlyPayment;
@@ -41,7 +41,8 @@ public class LoanService
         StartPaymentTimer();
         _gameState.NotifyStateChanged();
 
-        return (true, $"Loan approved! £{amount:N0} added to your balance. Monthly payments: £{monthlyPayment:N2}");
+        var interestTotal = totalRepay - amount;
+        return (true, $"Loan approved. £{amount:N0} added to your balance. APR {apr * 100:N2}%. Total interest: £{interestTotal:N2}. Monthly payment: £{monthlyPayment:N2}");
     }
 
     private void StartPaymentTimer()
@@ -66,13 +67,16 @@ public class LoanService
             return;
         }
 
-        if (_gameState.CurrentUser.Balance >= bank.MonthlyPayment)
+        var pay = bank.MonthlyPayment;
+        if (bank.LoanAmount < pay) pay = bank.LoanAmount;
+
+        if (_gameState.CurrentUser.Balance >= pay)
         {
-            _gameState.CurrentUser.AdjustBalance(-bank.MonthlyPayment);
-            bank.LoanAmount -= bank.MonthlyPayment;
+            _gameState.CurrentUser.AdjustBalance(-pay);
+            bank.LoanAmount -= pay;
 
             _gameState.Transactions.Add(new Transaction(
-                $"{bank.Name} Loan Payment", -bank.MonthlyPayment, 0, _gameState.CurrentUser.Balance, false));
+                $"{bank.Name} Loan Payment", -pay, 0, _gameState.CurrentUser.Balance, false));
 
             if (bank.LoanAmount <= 0)
             {
