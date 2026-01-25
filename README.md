@@ -1,4 +1,4 @@
-# Wizard Stock Exchange
+# Wizard Stock Market
 
 A stock exchange simulator that lets you practice trading with virtual money. Originally built as a Windows Forms VB.NET application, now modernized as a cross-platform Blazor web application.
 
@@ -8,52 +8,87 @@ A stock exchange simulator that lets you practice trading with virtual money. Or
 
 ## Features
 
-- 📊 **Live Market** - View 50 stocks from the London Stock Exchange (simulated) with real-time price updates
-- 💼 **Portfolio Management** - Buy and sell stocks, track your investments
-- 👁️ **Watchlist** - Keep an eye on stocks you're interested in
-- 📋 **Transaction History** - View all your past trades
-- 🏦 **Bank Loans** - Borrow money from various banks to expand your portfolio
-- 📈 **Price Charts** - Visual price history for each stock
-- 🎯 **Score System** - Earn points based on your trading performance
+- **Live Market** - View 50 stocks from the London Stock Exchange (simulated) with real-time price updates
+- **Portfolio Management** - Buy and sell stocks, track your investments
+- **Watchlist** - Keep an eye on stocks you're interested in
+- **Transaction History** - View all your past trades
+- **Bank Loans** - Borrow money from various banks to expand your portfolio
+- **Price Charts** - Visual price history for each stock
+- **Score System** - Earn points based on your trading performance
 
 ## Requirements
 
 - [.NET 7.0 SDK](https://dotnet.microsoft.com/download/dotnet/7.0) or later
 - Works on macOS, Windows, and Linux
 
-## Quick Start
+## Clone and Run
 
 1. **Clone the repository**
    ```bash
    git clone https://github.com/Roland-02/WizardStockExchange.git
-   cd Loreto_Stock_Market
+   cd WizardStockExchange
    ```
 
 2. **Run the application**
    ```bash
-   cd src/WizardStockExchange
-   dotnet run --urls "http://localhost:5000"
+   dotnet run --project src/WizardStockExchange.csproj --urls "http://localhost:5000"
    ```
 
 3. **Open in browser**
-   
+
    Navigate to `http://localhost:5000`
+
+## Screenshots
+
+Add your screenshots to `docs/screenshots/` using these filenames so they appear below:
+
+| Page | Filename |
+|------|----------|
+| Market (dashboard) | `market.png` |
+| Portfolio | `portfolio.png` |
+| Watchlist | `watchlist.png` |
+| History | `history.png` |
+| Bank | `bank.png` |
+| About | `about.png` |
+
+**Market (dashboard)**
+
+![Market](docs/screenshots/market.png)
+
+**Portfolio**
+
+![Portfolio](docs/screenshots/portfolio.png)
+
+**Watchlist**
+
+![Watchlist](docs/screenshots/watchlist.png)
+
+**History**
+
+![History](docs/screenshots/history.png)
+
+**Bank**
+
+![Bank](docs/screenshots/bank.png)
+
+**About**
+
+![About](docs/screenshots/about.png)
 
 ## Project Structure
 
 ```
-Loreto_Stock_Market/
+Wizard_Stock_Market/
 ├── src/
-│   └── WizardStockExchange/
-│       ├── Components/
-│       │   ├── Layout/         # Main layout
-│       │   ├── Pages/          # Page components
-│       │   └── Shared/         # Shared components
-│       ├── Models/             # Data models
-│       ├── Services/           # Business logic
-│       └── wwwroot/            # Static assets
-├── legacy/                     # Original VB.NET Windows Forms code
-└── WizardStockExchange.sln     # Solution file
+│   ├── Components/
+│   │   ├── Layout/         # Main layout, navbar, side menu
+│   │   ├── Pages/          # Market, Portfolio, Watchlist, History, Bank, About
+│   │   └── Shared/         # Trade modal and shared components
+│   ├── Models/             # Stock, User, Transaction, Bank
+│   ├── Services/           # GameState, TradingService, StockDataService, LoanService
+│   ├── wwwroot/            # CSS, favicon, static assets
+│   └── WizardStockExchange.csproj
+└── README.md
 ```
 
 ## How to Play
@@ -67,8 +102,8 @@ Loreto_Stock_Market/
 
 ## Technologies
 
-- **Blazor Server** - For interactive UI with real-time updates
-- **C# / .NET 7** - Modern, cross-platform runtime
+- **Blazor Server** - Interactive UI with real-time updates
+- **C# / .NET 7** - Cross-platform runtime
 - **CSS3** - Custom dark theme with animations
 
 ## Original Project
@@ -82,8 +117,8 @@ The new version replaces all Windows-specific dependencies with cross-platform a
 
 ## License
 
-MIT License - Feel free to use and modify!
+MIT License - Feel free to use and modify.
 
 ---
 
-Made with ❤️ by Roland
+By [Roland Olajide](https://github.com/Roland-02)
